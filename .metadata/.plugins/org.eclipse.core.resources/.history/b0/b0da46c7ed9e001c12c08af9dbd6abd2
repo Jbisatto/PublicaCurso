@@ -1,0 +1,48 @@
+package exercicio08;
+
+import javax.swing.JOptionPane;
+
+public class JogoForca {
+
+	public static void main(String[] args) {
+		
+		int erro=0;
+		char letra;
+		boolean e=false;
+		boolean s=false;
+		boolean t=false;
+		boolean u=false;
+		boolean d=false;
+		boolean a=false;
+		boolean r=false;
+		while(erro!=7) {
+			letra=  Character.toLowerCase(JOptionPane.showInputDialog("Digite um numero").charAt(0));
+			if(letra=='e'&&e==false) {
+				JOptionPane.showMessageDialog(null,"Certo");
+				e=true;
+			}else if(letra=='s' && s==false) {
+				JOptionPane.showMessageDialog(null,"Certo");
+				s=true;	
+			}else if(letra=='t'&& t==false) {
+				JOptionPane.showMessageDialog(null,"Certo");
+				t=true;
+			}else if(letra=='u' && u==false) {
+				JOptionPane.showMessageDialog(null,"Certo");
+				u=true;
+			}else if(letra=='d' && d==false) {
+				JOptionPane.showMessageDialog(null,"Certo");
+				d=true;
+			}else if(letra=='a' && a==false) {
+				JOptionPane.showMessageDialog(null,"Certo");
+				a=true;
+			}else if(letra=='r' && r==false) {
+				JOptionPane.showMessageDialog(null,"Certo");
+				r=true;
+			}else {
+				
+			}
+		}
+
+	}
+
+}

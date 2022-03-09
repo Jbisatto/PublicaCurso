@@ -1,0 +1,30 @@
+package condicional;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		
+//		Variavel
+		Scanner receber = new Scanner(System.in);
+		
+		int idade = receber.nextInt();
+		
+
+		
+		String nome ="Jefferson";
+		
+//		Condicional
+//		if(idade>=18) {
+//			System.out.println("Maior de Idade");
+//		}else {
+//			System.out.println("Menor de idade");
+//		}
+		
+		System.out.println(idade>= 18 ? "Maior de Idade": "Menor de idade");
+
+	}
+
+}

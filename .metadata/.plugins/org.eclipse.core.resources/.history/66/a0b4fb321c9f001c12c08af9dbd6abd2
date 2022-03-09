@@ -1,0 +1,18 @@
+package exercicio04;
+
+import javax.swing.JOptionPane;
+
+public class Vetor100posicoea {
+
+	public static void main(String[] args) {
+		String[] nomes = new String[100];
+		int sair=0,contador=0;
+		while(sair==0||contador<nomes.length) {
+			nomes[contador]=JOptionPane.showInputDialog("Informe o nome: ");
+			sair= Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para sair ou 0 para continuar!"));
+			contador++;
+		}
+
+	}
+
+}

@@ -1,0 +1,22 @@
+package equals;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		//Obter nomes
+		
+		String nome1=JOptionPane.showInputDialog("1° nome: ");
+		String nome2=JOptionPane.showInputDialog("2° nome: ");
+		
+		//Conparação
+		if(nome1.toString()==nome2.toString()) {
+			JOptionPane.showConfirmDialog(null, "São Iguais");
+		}else {
+			JOptionPane.showConfirmDialog(null, "São Diferentes");
+		}
+	}
+
+}

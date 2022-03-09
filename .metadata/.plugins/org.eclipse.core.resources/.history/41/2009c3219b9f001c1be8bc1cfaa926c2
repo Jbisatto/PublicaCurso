@@ -1,0 +1,25 @@
+package exercicio06;
+
+public class JogoVelha {
+
+	public static void main(String[] args) {
+		char [][] jogo = new char[3][3];
+		boolean parar=true;
+		
+		while(parar) {
+			
+			for (int i = 0; i < jogo.length; i++) {
+				System.out.println("");
+				for (int j = 0; j < jogo.length; j++) {
+					System.out.print(jogo[i][j]+" | ");
+				}
+				
+			}
+			
+			
+		}
+		
+
+	}
+
+}

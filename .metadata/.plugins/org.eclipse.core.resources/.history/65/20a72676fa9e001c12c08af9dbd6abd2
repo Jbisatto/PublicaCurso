@@ -1,0 +1,12 @@
+package exercicio09;
+
+import javax.swing.JOptionPane;
+
+public class Votacao {
+
+	public static void main(String[] args) {
+		int candidato1,candidato2,candidato3,candidato4, totalVotos;
+
+	}
+
+}

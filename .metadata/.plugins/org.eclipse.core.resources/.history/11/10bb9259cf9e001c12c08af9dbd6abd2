@@ -1,0 +1,10 @@
+package exercicio16;
+
+public class CalculoPagamento {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,20 @@
+package exercicio10;
+
+import javax.swing.JOptionPane;
+
+public class SeparadorNumeros {
+
+	public static void main(String[] args) {
+		int pares=0,impares=0,positivos=0,negativos=0,qtdnumero=0,numero;
+		do {
+			numero = Integer.parseInt(JOptionPane.showInputDialog("Digite um numero ou 0 para encerrrar!!!"));
+			if(numero%2==0) {
+				pares++;
+			}
+		}while(numero!=0);
+	}
+
+}
+//Peça vários números, até que seja informado o zero para
+//finalizar o sistema. Exiba a quantidade de números informada,
+//além das quantidades de: pares, ímpares, positivos e negativos.

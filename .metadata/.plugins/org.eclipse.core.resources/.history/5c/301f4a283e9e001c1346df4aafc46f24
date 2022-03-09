@@ -1,0 +1,22 @@
+package tratamento_erros;
+
+import javax.swing.JOptionPane;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		
+		
+		try {
+		int numero = Integer.parseInt(JOptionPane.showInputDialog("Informe um numero"));
+		System.out.println(numero);
+		} catch(Exception erro) {
+			JOptionPane.showMessageDialog(null,"Falha "+ erro);
+		}
+		
+		
+
+	}
+
+}

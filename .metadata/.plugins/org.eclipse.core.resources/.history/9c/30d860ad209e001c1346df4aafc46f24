@@ -1,0 +1,21 @@
+package condicional;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		
+//		Variavel
+		int idade=17;
+		String nome ="Jefferson";
+		
+//		Condicional
+		if(nome=="Jefferso") {
+			System.out.println("Maior de Idade");
+		}else {
+			System.out.println("Menor de idade");
+		}
+
+	}
+
+}

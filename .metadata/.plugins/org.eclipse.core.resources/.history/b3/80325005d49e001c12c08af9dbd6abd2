@@ -1,0 +1,63 @@
+package exercicio17;
+
+import javax.swing.JOptionPane;
+
+public class Signo {
+	
+	public static void main(String[] args) {
+		
+		int dia = Integer.parseInt(JOptionPane.showInputDialog("Informe o dia do Nacimento: "));
+		int mes = Integer.parseInt(JOptionPane.showInputDialog("Informe o mês do Nascimento: "));
+		
+		if((dia>=21&&mes==3)||((dia<=20)&&(mes==4))){
+			JOptionPane.showMessageDialog(null,"O Signo é Áries!!!");
+			
+		}else if((dia>=21&&mes==4)||((dia<=20)&&(mes==5))){
+			JOptionPane.showMessageDialog(null,"O Signo é Touro!!!");
+			
+		}else if((dia>=21&&mes==5)||((dia<=20)&&(mes==6))){
+			JOptionPane.showMessageDialog(null,"O Signo é Gêmeos!!!");
+			
+		}else if((dia>=21&&dia<=21)&&((mes==6)||(mes==7))){
+			JOptionPane.showMessageDialog(null,"O Signo é Câncer!!!");
+			
+		}else if((dia>=22&&dia<=22)&&((mes==7)||(mes==8))){
+			JOptionPane.showMessageDialog(null,"O Signo é Leão!!!");
+			
+		}else if((dia>=23&&dia<=22)&&((mes==8)||(mes==9))){
+			JOptionPane.showMessageDialog(null,"O Signo é Virgem!!!");
+			
+		}else if((dia>=23&&dia<=22)&&((mes==9)||(mes==10))){
+			JOptionPane.showMessageDialog(null,"O Signo é Libra!!!");
+			
+		}else if((dia>=23&&dia<=21)&&((mes==10)||(mes==11))){
+			JOptionPane.showMessageDialog(null,"O Signo é Escorpião!!!");
+		}else if((dia>=22&&dia<=21)&&((mes==11)||(mes==12))){
+			JOptionPane.showMessageDialog(null,"O Signo é Sagitário!!!");
+		}else if((dia>=22&&dia<=20)&&((mes==12)||(mes==1))){
+			JOptionPane.showMessageDialog(null,"O Signo é Capricórnio!!!");
+		}else if((dia>=21&&dia<=19)&&((mes==1)||(mes==2))){
+			JOptionPane.showMessageDialog(null,"O Signo é Aquário!!!");
+		}else if((dia>=20&&dia<=20)&&((mes==2)||(mes==3))){
+			JOptionPane.showMessageDialog(null,"O Signo é Peixes!!!");
+		}else
+			JOptionPane.showMessageDialog(null,"Signo não encontrado!!!");
+		
+		
+//		Áries 21/Março - 20/Abril
+//		Touro 21/Abril - 20/Maio
+//		Gêmeos 21/Maio - 20/Junho
+//		Câncer 21/Junho - 21/Julho
+//		Leão 22/Julho - 22/Agosto
+//		Virgem 23/Agosto - 22/Setembro
+//		Libra 23/Setembro - 22/Outubro
+//		Escorpião 23/Outubro - 21/Novembro
+//		Sagitário 22/Novembro - 21/Dezembro
+//		Capricórnio 22/Dezembro - 20/Janeiro
+//		Aquário 21/Janeiro - 19/Fevereiro
+//		Peixes 20/Fevereiro - 20/Março
+		
+		
+	}
+
+}

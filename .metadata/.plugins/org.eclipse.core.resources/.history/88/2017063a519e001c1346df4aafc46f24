@@ -1,0 +1,18 @@
+package exercicio08;
+
+import javax.swing.JOptionPane;
+
+public class ConversorMoeda {
+	
+	public static void main(String[] args) {
+		
+	
+	double valor = Double.parseDouble(JOptionPane.showInputDialog("Informe o Valor que deseja converter"));
+	int cidade = Integer.parseInt(JOptionPane.showInputDialog(""
+			+ "1-Real para Dólar"
+			+ " \n 2-Dólar para Real"
+			+"\n 3-Real para Euro"
+			+ "\n 4-Euro para Real"));
+
+}
+}

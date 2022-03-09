@@ -1,0 +1,36 @@
+package exercicio06;
+
+public class JogoVelha {
+
+	public static void main(String[] args) {
+		char [][] jogo = new char[3][3];
+		boolean parar=true;
+		int contador=0;
+		
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				jogo[i][j]=(char) contador;
+				contador++;
+
+			}
+			
+		}
+		
+		while(parar) {
+			
+			for (int i = 0; i < 3; i++) {
+				System.out.println("");
+				for (int j = 0; j < 3; j++) {
+					System.out.print(jogo[i][j]+"  ");
+				}
+				
+			}
+		parar=false;
+			
+			
+		}
+		
+
+	}
+
+}

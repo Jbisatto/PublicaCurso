@@ -1,0 +1,23 @@
+package exercicio05;
+
+import javax.swing.JOptionPane;
+
+public class PessoaMaisVelha {
+
+	public static void main(String[] args) {
+		String nome;
+		int idade;
+		int idadeAnterior;
+		int parar;
+
+		do {
+			nome=JOptionPane.showInputDialog("Digite a idade");
+			idade= Integer.parseInt(JOptionPane.showInputDialog("Digite a idade"));
+			idadeAnterior=idade;
+			parar= Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para parar!!!"));
+					
+		}while(parar!=0);
+
+	}
+
+}

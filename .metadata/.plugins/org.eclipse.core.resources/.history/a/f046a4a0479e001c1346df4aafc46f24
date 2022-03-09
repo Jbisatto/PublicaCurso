@@ -1,0 +1,18 @@
+package doisNumeros;
+
+import javax.swing.JOptionPane;
+
+public class DoisNumero {
+
+	public static void main(String[] args) {
+		
+	
+	double numero1 = Double.parseDouble(JOptionPane.showInputDialog("Informe o primeiro numero:"));
+	double numero2 = Double.parseDouble(JOptionPane.showInputDialog("Informe o segundo numero:"));
+	
+	if(numero1==numero2) {
+		numer
+	}
+	
+}
+}

@@ -1,0 +1,23 @@
+package exercicio07;
+
+import javax.swing.JOptionPane;
+
+public class Investimento {
+
+	public static void main(String[] args) {
+
+		double valor = Double.parseDouble(JOptionPane.showInputDialog("Informe o Valor que deseja investir"));
+		double taxa = (Double.parseDouble(JOptionPane.showInputDialog("Informe o a taxa de investimento")))/100;
+		int tempo = Integer.parseInt(JOptionPane.showInputDialog("Tempo de investimento"));
+		
+		for(int i=1;i<=tempo;i++) {
+			System.out.println("Mês "+i+"-- Ganhos "+(valor*taxa)+"-- Total "+valor+(valor*taxa));
+			valor=valor+(valor*taxa);
+		}
+
+	}
+
+}
+//Informe um valor que o cliente deseja investir, depois informe uma taxa 
+//de juros mensal e o tempo (em meses) da aplicação. Retorne qual será o 
+//ganho mensal daquela aplicação, exemplo:

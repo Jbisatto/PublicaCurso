@@ -1,0 +1,21 @@
+package exercicio08;
+
+public class JogoVelhaAutomatico {
+
+	public static void main(String[] args) {
+		char[][] jogo = new char[3][3];
+		boolean parar = true, numeroRepetido = true;
+		int contador = 1, posicao;
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				jogo[i][j] = Integer.toString(contador).charAt(0);
+				contador++;
+
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,26 @@
+package exercicio03;
+
+import javax.swing.JOptionPane;
+
+public class ValidarVetor {
+
+	public static void main(String[] args) {
+		int[] v1 = new int[10];
+		int numero;
+		for (int i = 0; i < v1.length; i++) {
+			numero= Integer.parseInt(JOptionPane.showInputDialog("Informe um numero:"));
+			for (int j = 0; j < v1.length; j++) {
+				if(v1[j]==numero) {
+					JOptionPane.showMessageDialog(null,"Numero repetido:");
+				}else {
+					v1[i]=numero;
+				}
+			}
+		}
+		for (int i = 0; i < v1.length; i++) {
+			System.out.println(v1[i]);
+		}
+
+	}
+
+}

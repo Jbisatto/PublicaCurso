@@ -1,0 +1,11 @@
+package exercicio05;
+
+public class Vetor2posicoes {
+
+	public static void main(String[] args) {
+		
+		String [][] pessoa = new String[10][2];
+
+	}
+
+}

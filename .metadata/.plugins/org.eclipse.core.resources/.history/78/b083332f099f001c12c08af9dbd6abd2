@@ -1,0 +1,50 @@
+package exercicio01;
+
+import java.util.Iterator;
+
+import javax.swing.JOptionPane;
+
+public class DoisVeroresCalculo {
+
+	public static void main(String[] args) {
+		
+		int[] v1 =new int[10];
+		int[] v2 =new int[10];
+		int[] vRetorno =new int[10];
+		String resultado="Resultado :";
+		
+		for (int i = 0; i < v1.length; i++) {
+			v1[i] = Integer.parseInt(JOptionPane.showInputDialog("Informe um numero para primeiro vetor!!!"));
+		}
+		for (int i = 0; i < v2.length; i++) {
+			v2[i] = Integer.parseInt(JOptionPane.showInputDialog("Informe um numero para segundo vetor!!!"));
+		}
+		
+		int operacao= Integer.parseInt(JOptionPane.showInputDialog("Escolha o tipo de operação:\n1-Adição\n2-Subtração\n3-Multiplicação\n4-Divisão"));
+		
+		switch (operacao) {
+		case 1:
+			for (int i = 0; i < vRetorno.length; i++) {
+				vRetorno[i]=(v1[i]+v2[i]);
+			}
+		case 2:
+			for (int i = 0; i < vRetorno.length; i++) {
+				vRetorno[i]=(v1[i]-v2[i]);			}
+		case 3:
+			for (int i = 0; i < vRetorno.length; i++) {
+				vRetorno[i]=(v1[i]*v2[i]);			}
+		case 4:
+			for (int i = 0; i < vRetorno.length; i++) {
+				vRetorno[i]=(v1[i]/v2[i]);			}
+		default:
+			JOptionPane.showMessageDialog(null, "Operador Invalido!!");
+		}
+		
+		for (int i = 0; i < vRetorno.length; i++) {
+			resultado=resultado+vRetorno[i]+", ";
+		}
+		
+		JOptionPane.showMessageDialog(null, "Resultado: "+resultado);
+	}
+
+}

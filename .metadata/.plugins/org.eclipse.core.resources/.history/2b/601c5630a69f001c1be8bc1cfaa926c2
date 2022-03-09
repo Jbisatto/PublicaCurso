@@ -1,0 +1,26 @@
+package exercicio07;
+
+public class Matriz25posicoes {
+
+	public static void main(String[] args) {
+		int [][] matriz = new int [5][5];
+		int contador=1;
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				matriz[i][j] = contador;
+				contador++;
+
+			}
+
+		}
+		System.out.println("");
+		for (int i = 0; i < 5; i++) {
+			System.out.println("");
+			for (int j = 0; j < 5; j++) {
+				System.out.print(matriz[i][j] + "  ");
+			}
+
+		}
+	}
+
+}

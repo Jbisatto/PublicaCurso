@@ -1,0 +1,18 @@
+package exercicio08;
+
+import javax.swing.JOptionPane;
+
+public class JogoForca {
+
+	public static void main(String[] args) {
+		
+		int erro=0;
+		char letra;
+		while(erro!=7) {
+			letra= JOptionPane.showInputDialog("Digite um numero").charAt(0);
+			if(palavra.contains(letra))
+		}
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package exercicio11;
+
+import java.util.Random;
+
+public class AdvinharNumero {
+
+	public static void main(String[] args) {
+		
+		Random aleatorio = new Random();
+		int valor = aleatorio.nextInt(100) + 1;
+		System.out.println("Número gerado: " + valor);
+	}
+
+}

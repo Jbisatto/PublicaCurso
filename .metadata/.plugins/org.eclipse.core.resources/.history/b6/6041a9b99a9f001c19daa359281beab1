@@ -1,0 +1,10 @@
+package exercicio06;
+
+public class JogoVelha {
+
+	public static void main(String[] args) {
+		char [][] jogo = new char[3][3];
+
+	}
+
+}

@@ -1,0 +1,43 @@
+package exercicio06;
+
+import javax.swing.JOptionPane;
+
+public class JogoVelha {
+
+	public static void main(String[] args) {
+		char [][] jogo = new char[3][3];
+		boolean parar=true;
+		int contador=1,sair;
+		
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				jogo[i][j]=Integer.toString(contador).charAt(0);
+				contador++;
+
+			}
+			
+		}
+		
+		while(parar) {
+			
+			for (int i = 0; i < 3; i++) {
+				System.out.println("");
+				for (int j = 0; j < 3; j++) {
+					System.out.print(jogo[i][j]+"  ");
+				}
+				
+			}
+		
+			sair = Integer.parseInt(JOptionPane.showInputDialog("Digite 0 para sair ou 1 para continuar!"));
+			
+			
+			
+			
+			parar=false;
+			
+		}
+		
+
+	}
+
+}

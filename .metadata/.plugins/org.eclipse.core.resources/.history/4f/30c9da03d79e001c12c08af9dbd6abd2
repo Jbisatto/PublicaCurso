@@ -1,0 +1,10 @@
+package exercicio20;
+
+public class ConversorDistancia {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

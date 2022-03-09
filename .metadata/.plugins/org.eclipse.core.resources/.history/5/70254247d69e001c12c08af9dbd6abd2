@@ -1,0 +1,15 @@
+package exercicio19;
+
+import javax.swing.JOptionPane;
+
+public class Imc {
+
+	public static void main(String[] args) {
+
+		double peso = Double.parseDouble(JOptionPane.showInputDialog("Informe a peso:"));
+		double altura = Double.parseDouble(JOptionPane.showInputDialog("Informe a altura:"));
+		
+
+	}
+
+}

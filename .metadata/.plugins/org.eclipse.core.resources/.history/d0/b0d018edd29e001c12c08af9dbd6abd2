@@ -1,0 +1,46 @@
+package exercicio17;
+
+import javax.swing.JOptionPane;
+
+public class Signo {
+	
+	public static void main(String[] args) {
+		
+		int dia = Integer.parseInt(JOptionPane.showInputDialog("Informe o dia do Nacimento:"));
+		int mes = Integer.parseInt(JOptionPane.showInputDialog("Informe o mês do Nascimento"));
+		int ano = Integer.parseInt(JOptionPane.showInputDialog("Informe o ano do Nascimento"));
+		
+		
+		switch (cidade) {
+		case 1: 
+			hora-=3;
+			break;
+		case 2: 
+			hora+=12;
+			break;
+
+		case 3: 
+			hora-=2;
+			break;
+		default:
+			JOptionPane.showMessageDialog(null,"Informação incorreta!!!");
+		}
+		
+		
+//		Áries 21/Março - 20/Abril
+//		Touro 21/Abril - 20/Maio
+//		Gêmeos 21/Maio - 20/Junho
+//		Câncer 21/Junho - 21/Julho
+//		Leão 22/Julho - 22/Agosto
+//		Virgem 23/Agosto - 22/Setembro
+//		Libra 23/Setembro - 22/Outubro
+//		Escorpião 23/Outubro - 21/Novembro
+//		Sagitário 22/Novembro - 21/Dezembro
+//		Capricórnio 22/Dezembro - 20/Janeiro
+//		Aquário 21/Janeiro - 19/Fevereiro
+//		Peixes 20/Fevereiro - 20/Março
+		
+		
+	}
+
+}

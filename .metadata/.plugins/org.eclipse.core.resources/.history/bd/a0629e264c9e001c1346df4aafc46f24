@@ -1,0 +1,16 @@
+package exercicio05;
+
+import javax.swing.JOptionPane;
+
+public class Media {
+
+	public static void main(String[] args) {
+		
+		double numero1 = Double.parseDouble(JOptionPane.showInputDialog("Informe a primeira nota:"));
+		double numero2 = Double.parseDouble(JOptionPane.showInputDialog("Informe a segunda nota:"));
+		double numero3 = Double.parseDouble(JOptionPane.showInputDialog("Informe a terceira nota:"));
+		double numero4 = Double.parseDouble(JOptionPane.showInputDialog("Informe a quarta nota:"));
+
+	}
+
+}

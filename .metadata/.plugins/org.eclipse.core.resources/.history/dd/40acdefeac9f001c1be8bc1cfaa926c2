@@ -1,0 +1,10 @@
+package exercicio08;
+
+public class JogoVelhaAutomatico {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

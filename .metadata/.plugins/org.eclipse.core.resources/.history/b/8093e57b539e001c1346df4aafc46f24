@@ -1,0 +1,18 @@
+package exercicio09;
+
+import javax.swing.JOptionPane;
+
+public class ControleVelocidade {
+
+	public static void main(String[] args) {
+		
+
+		int velocidade = Integer.parseInt(JOptionPane.showInputDialog("Informe a velocidade do veículo"));
+		int velocidadeMaxima = Integer.parseInt(JOptionPane.showInputDialog("Informe a velocidade do veículo"));
+
+		if(velocidade<=velocidadeMaxima) {
+			JOptionPane.showMessageDialog(null,"Bom Motorista!!!");
+		}
+	}
+
+}

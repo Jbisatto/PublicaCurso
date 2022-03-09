@@ -1,0 +1,23 @@
+package exercicio01;
+
+import java.util.Iterator;
+
+import javax.swing.JOptionPane;
+
+public class DoisVeroresCalculo {
+
+	public static void main(String[] args) {
+		
+		int[] v1 =new int[10];
+		int[] v2 =new int[10];
+		
+		for (int i = 0; i < v1.length; i++) {
+			v1[i] = Integer.parseInt(JOptionPane.showInputDialog("Informe um numero!!!"));
+		}
+		for (int i = 0; i < v2.length; i++) {
+			v2[i] = Integer.parseInt(JOptionPane.showInputDialog("Informe um numero!!!"));
+		}
+
+	}
+
+}

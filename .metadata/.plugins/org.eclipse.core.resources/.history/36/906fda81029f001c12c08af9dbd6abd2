@@ -1,0 +1,10 @@
+package exercicio11;
+
+public class AdvinharNumero {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

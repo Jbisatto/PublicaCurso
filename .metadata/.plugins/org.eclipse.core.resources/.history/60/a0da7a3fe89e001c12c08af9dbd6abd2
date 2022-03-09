@@ -1,0 +1,10 @@
+package exercicio07;
+
+public class Investimento {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

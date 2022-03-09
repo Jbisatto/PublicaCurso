@@ -1,0 +1,57 @@
+package exercicio07;
+
+public class Matriz25posicoes {
+
+	public static void main(String[] args) {
+		int[][] matriz = new int[5][5];
+		int contador = 1, soma = 0;
+
+//Preenchimeto da matriz		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				matriz[i][j] = contador;
+				contador++;
+
+			}
+
+		}
+
+//Exibir matriz
+		for (int i = 0; i < 5; i++) {
+			System.out.println("");
+			for (int j = 0; j < 5; j++) {
+				System.out.print(matriz[i][j] + "  ");
+			}
+
+		}
+//Somar valores matriz		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				soma += matriz[i][j];
+
+			}
+
+		}
+		System.out.println("\nSoma Total:" + soma);
+
+//Diagonal Principal		
+		for (int i = 0; i < 5; i++) {
+			for (int j = i; j == i; j++) {
+				System.out.print(matriz[i][j] + "  ");
+
+			}
+
+		}
+		System.out.println("");
+// Diagonal Secundaria
+		for (int i = 4; i > 0; i--) {
+			for (int j = 0; j <5; j++) {
+				System.out.print(matriz[i][j] + "  ");
+
+			}
+
+		}
+
+	}
+
+}
