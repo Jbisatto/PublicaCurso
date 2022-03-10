@@ -1,0 +1,23 @@
+package exercicio12;
+
+public class CarrinhoCompra {
+
+	public static void main(String[] args) {
+		String[][] produtos = new String[30][3];
+		produtos[0][0]="Tv";produtos[0][1]="10";produtos[0][2]="500";
+		produtos[1][0]="Tv";produtos[1][1]="10";produtos[1][2]="500";
+		produtos[2][0]="Tv";produtos[2][1]="10";produtos[2][2]="500";
+		produtos[3][0]="Tv";produtos[3][1]="10";produtos[3][2]="500";
+		produtos[4][0]="Tv";produtos[4][1]="10";produtos[4][2]="500";
+		produtos[5][0]="Tv";produtos[5][1]="10";produtos[5][2]="500";
+		produtos[6][0]="Tv";produtos[6][1]="10";produtos[6][2]="500";
+		produtos[7][0]="Tv";produtos[7][1]="10";produtos[7][2]="500";
+		produtos[8][0]="Tv";produtos[8][1]="10";produtos[8][2]="500";
+		produtos[9][0]="Tv";produtos[9][1]="10";produtos[9][2]="500";
+		produtos[10][0]="Tv";produtos[10][1]="10";produtos[10][2]="500";
+		
+		
+		
+	}
+
+}
