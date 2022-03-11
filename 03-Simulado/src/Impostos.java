@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JOptionPane;
 
 public class Impostos {
@@ -9,14 +8,13 @@ public class Impostos {
 		boolean sair = true;
 		String nomeBusca;
 		double impM = 0, impE = 0, impF = 0;
-		int qtdCadastrada = 0, qtdSeg1 = 0, qtdSeg2 = 0, qtdSeg3 = 0, qtdSeg4 = 0, qtdSeg5 = 0;
 		double valorTotalImposto = 0, valorSemImposto = 0;
 		ArrayList<String> produto = new ArrayList<String>();
 		ArrayList<Double> valor = new ArrayList<Double>();
 		ArrayList<Integer> segmento = new ArrayList<Integer>();
 
 		while (sair) {
-			int qtdMas = 0, qtdFem = 0, matutino = 0, vespertino = 0, noturno = 0, mediaMaior = 0, mediaMenor = 0;
+
 			String[] menupri = { "CADASTRAR", "LISTAR TODOS", "LISTAR SEGMENTO", "ALTERAR", "REMOVER", "ESTATÍSTICAS",
 					"FINALIZAR" };
 			int response = JOptionPane.showOptionDialog(null,
@@ -28,8 +26,8 @@ public class Impostos {
 							+ "Remover: Informe o nome do produto e exclua;\r\n"
 							+ "Estatísticas: Exiba a quantidade de produtos cadastrados, quantidade de produtos por segmento e a média de impostos (exiba cada um dos três) por segmento;\r\n"
 							+ "Sair: Finaliza o sistema.\r\n" + "",
-					"Calculo de Impostos do Produtos", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, menupri,
-					"None of your business");
+					"Calculo de Impostos do Produtos", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+					menupri, "None of your business");
 
 //			Cadastrar: Informe o nome do produto, valor e segmento. Não poderá haver produtos de mesmo nome;		
 			if (response == 0) {
@@ -41,25 +39,11 @@ public class Impostos {
 					}
 				}
 				if (!jacadastrado) {
-					int aux=0;
 					produto.add(verificaProduto);
 					valor.add(Double.parseDouble(JOptionPane.showInputDialog("Informe o valor do produto")));
-					aux=Integer.parseInt(JOptionPane.showInputDialog(
+					segmento.add(Integer.parseInt(JOptionPane.showInputDialog(
 							"Sequementos(Digiteo numero referente a cada opção): \n1-Áudio e vídeo" + "\n2-Alimentício"
-									+ "\n3-Eletrodomésticos" + "\n4-Informática" + "\n5-Vestuário"));
-					segmento.add(aux);
-					if (aux== 1) {
-						qtdSeg1++;
-					} else if (aux == 2) {
-						qtdSeg2++;
-					} else if (aux == 3) {
-						qtdSeg3++;
-					} else if (aux == 4) {
-						qtdSeg4++;
-					} else {
-						qtdSeg5++;
-					}
-					qtdCadastrada++;
+									+ "\n3-Eletrodomésticos" + "\n4-Informática" + "\n5-Vestuário")));
 					jacadastrado = false;
 					System.out.println("Adicionar");
 				}
@@ -111,51 +95,43 @@ public class Impostos {
 
 			}
 			if (response == 2) {
-				String lista = "Lista:\n", seqmentoNome = "";
+				String lista = "Lista:\n";
 
 				int valorEscolhidoSeg = Integer.parseInt(JOptionPane
 						.showInputDialog("Sequementos(Digiteo numero referente a cada opção): \n1-Áudio e vídeo"
 								+ "\n2-Alimentício" + "\n3-Eletrodomésticos" + "\n4-Informática" + "\n5-Vestuário"));
-				if (valorEscolhidoSeg == 1) {
-					lista += "Segmento Áudio e vídeo\n";
-				} else if (valorEscolhidoSeg == 2) {
-					lista += "Segmento Alimentício\n";
-				} else if (valorEscolhidoSeg == 3) {
-					lista += "Segmento Eletrodomésticos\n";
-				} else if (valorEscolhidoSeg == 4) {
-					lista += "Segmento Informática\n";
-				} else {
-					lista += "Vestuário\n";
+				switch (valorEscolhidoSeg) {
+				case 1 -> lista += "Segmento Áudio e vídeo\n";
+				case 2 -> lista += "Segmento Alimentício\n";
+				case 3 -> lista += "Segmento Eletrodomésticos\n";
+				case 4 -> lista += "Segmento Informática\n";
+				case 5 -> lista += "Vestuário\n";
+				default -> throw new IllegalArgumentException("Unexpected value: " + valorEscolhidoSeg);
 				}
 
 				for (int i = 0; i < segmento.size(); i++) {
 					if (segmento.get(i) == valorEscolhidoSeg) {
 						if (segmento.get(i) == 1) {
-							seqmentoNome = "Áudio e vídeo";
 							impM = valor.get(i) * 0.03;
 							impE = valor.get(i) * 0.05;
 							impF = valor.get(i) * 0.07;
 							valorTotalImposto = impM + impF + impE;
 						} else if (segmento.get(i) == 2) {
-							seqmentoNome = "Alimentício";
 							impM = valor.get(i) * 0.01;
 							impE = valor.get(i) * 0.03;
 							impF = valor.get(i) * 0.06;
 							valorTotalImposto = impM + impF + impE;
 						} else if (segmento.get(i) == 3) {
-							seqmentoNome = "Eletrodomésticos";
 							impM = valor.get(i) * 0.03;
 							impE = valor.get(i) * 0.08;
 							impF = valor.get(i) * 0.09;
 							valorTotalImposto = impM + impF + impE;
 						} else if (segmento.get(i) == 4) {
-							seqmentoNome = "Informática";
 							impM = valor.get(i) * 0.04;
 							impE = valor.get(i) * 0.10;
 							impF = valor.get(i) * 0.16;
 							valorTotalImposto = impM + impF + impE;
 						} else {
-							seqmentoNome = "Vestuário";
 							impM = valor.get(i) * 0.02;
 							impE = valor.get(i) * 0.03;
 							impF = valor.get(i) * 0.05;
@@ -183,44 +159,18 @@ public class Impostos {
 							}
 						}
 						if (!jacadastrado) {
-							int numeroSegNovo=0;
+							int numeroSegNovo = 0;
 							produto.set(i, verificaProduto);
 
 							valor.set(i, Double.parseDouble(
 									JOptionPane.showInputDialog("Informe o novo valor(" + valor.get(i) + ")")));
-							
-							numeroSegNovo=Integer.parseInt(JOptionPane.showInputDialog("Informe o novo segmento("
-											+ segmento.get(i) + ")\n1-Áudio e vídeo" + "\n2-Alimentício"
-											+ "\n3-Eletrodomésticos" + "\n4-Informática" + "\n5-Vestuário"));
-						    if(segmento.get(i)!=numeroSegNovo) {
-								if (segmento.get(i)== 1) {
-									qtdSeg1--;
-								} else if (segmento.get(i) == 2) {
-									qtdSeg2--;
-								} else if (segmento.get(i) == 3) {
-									qtdSeg3--;
-								} else if (segmento.get(i) == 4) {
-									qtdSeg4--;
-								} else {
-									qtdSeg5--;
-								}
-								
-								if (numeroSegNovo== 1) {
-									qtdSeg1++;
-								} else if (numeroSegNovo == 2) {
-									qtdSeg2++;
-								} else if (numeroSegNovo == 3) {
-									qtdSeg3++;
-								} else if (numeroSegNovo == 4) {
-									qtdSeg4++;
-								} else {
-									qtdSeg5++;
-								}
-						    }
-							
-							
-							segmento.set(i,numeroSegNovo);
-											JOptionPane.showMessageDialog(null, "Produto Alterado!!!");
+
+							numeroSegNovo = Integer.parseInt(JOptionPane.showInputDialog("Informe o novo segmento("
+									+ segmento.get(i) + ")\n1-Áudio e vídeo" + "\n2-Alimentício"
+									+ "\n3-Eletrodomésticos" + "\n4-Informática" + "\n5-Vestuário"));
+
+							segmento.set(i, numeroSegNovo);
+							JOptionPane.showMessageDialog(null, "Produto Alterado!!!");
 							jacadastrado = false;
 						}
 					}
@@ -236,18 +186,6 @@ public class Impostos {
 						produto.remove(i);
 						valor.remove(i);
 						segmento.get(i);
-						if (segmento.get(i) == 1) {
-							qtdSeg1--;
-						} else if (segmento.get(i) == 2) {
-							qtdSeg2--;
-						} else if (segmento.get(i) == 3) {
-							qtdSeg3--;
-						} else if (segmento.get(i) == 4) {
-							qtdSeg4--;
-						} else {
-							qtdSeg5--;
-						}
-						qtdCadastrada--;
 						JOptionPane.showMessageDialog(null, "Produto Removido com sucesso!!!");
 					}
 				}
@@ -255,6 +193,7 @@ public class Impostos {
 			}
 
 			if (response == 5) {
+				int qtdSeg1 = 0, qtdSeg2 = 0, qtdSeg3 = 0, qtdSeg4 = 0, qtdSeg5 = 0;
 				double seg1ImpM = 0, seg1ImpE = 0, seg1ImpF = 0,
 
 						seg2ImpM = 0, seg2ImpE = 0, seg2ImpF = 0,
@@ -264,62 +203,64 @@ public class Impostos {
 						seg4ImpM = 0, seg4ImpE = 0, seg4ImpF = 0,
 
 						seg5ImpM = 0, seg5ImpE = 0, seg5ImpF = 0;
-				
+
 				for (int i = 0; i < valor.size(); i++) {
 					if (segmento.get(i) == 1) {
+						qtdSeg1++;
 						seg1ImpM += valor.get(i) * 0.03;
 						seg1ImpE += valor.get(i) * 0.05;
 						seg1ImpF += valor.get(i) * 0.07;
 					} else if (segmento.get(i) == 2) {
+						qtdSeg2++;
 						seg2ImpM += valor.get(i) * 0.01;
 						seg2ImpE += valor.get(i) * 0.03;
 						seg2ImpF += valor.get(i) * 0.06;
 					} else if (segmento.get(i) == 3) {
+						qtdSeg3++;
 						seg3ImpM += valor.get(i) * 0.03;
 						seg3ImpE += valor.get(i) * 0.08;
 						seg3ImpF += valor.get(i) * 0.09;
 					} else if (segmento.get(i) == 4) {
+						qtdSeg4++;
 						seg4ImpM += valor.get(i) * 0.04;
 						seg4ImpE += valor.get(i) * 0.10;
 						seg4ImpF += valor.get(i) * 0.16;
 					} else {
+						qtdSeg5++;
 						seg5ImpM += valor.get(i) * 0.02;
 						seg5ImpE += valor.get(i) * 0.03;
 						seg5ImpF += valor.get(i) * 0.05;
 					}
 				}
-				if(qtdCadastrada>0) {
-				seg1ImpM = seg1ImpM/qtdSeg1;
-				seg1ImpE = seg1ImpE/qtdSeg1;
-				seg1ImpF = seg1ImpF/qtdSeg1;
-				seg2ImpM = seg2ImpM/qtdSeg2;
-				seg2ImpE = seg2ImpE/qtdSeg2;
-				seg2ImpF = seg2ImpF/qtdSeg2;
-				seg3ImpM = seg3ImpM/qtdSeg3;
-				seg3ImpE = seg3ImpE/qtdSeg3;
-				seg3ImpF = seg3ImpF/qtdSeg3;
-				seg4ImpM = seg4ImpM/qtdSeg4;
-				seg4ImpE = seg4ImpE/qtdSeg4;
-				seg4ImpF = seg4ImpF/qtdSeg4;
-				seg5ImpM = seg5ImpM/qtdSeg5;
-				seg5ImpE = seg5ImpE/qtdSeg5;
-				seg5ImpF = seg5ImpF/qtdSeg5;
+
+				if (produto.size() > 0) {
+					seg1ImpM = seg1ImpM / qtdSeg1;
+					seg1ImpE = seg1ImpE / qtdSeg1;
+					seg1ImpF = seg1ImpF / qtdSeg1;
+					seg2ImpM = seg2ImpM / qtdSeg2;
+					seg2ImpE = seg2ImpE / qtdSeg2;
+					seg2ImpF = seg2ImpF / qtdSeg2;
+					seg3ImpM = seg3ImpM / qtdSeg3;
+					seg3ImpE = seg3ImpE / qtdSeg3;
+					seg3ImpF = seg3ImpF / qtdSeg3;
+					seg4ImpM = seg4ImpM / qtdSeg4;
+					seg4ImpE = seg4ImpE / qtdSeg4;
+					seg4ImpF = seg4ImpF / qtdSeg4;
+					seg5ImpM = seg5ImpM / qtdSeg5;
+					seg5ImpE = seg5ImpE / qtdSeg5;
+					seg5ImpF = seg5ImpF / qtdSeg5;
 				}
-				JOptionPane.showMessageDialog(null,""
-						+ "Quantidade de produtos cadastrados: "+qtdCadastrada
-						+ "\nQuantidade de produtos por segmento: "
-						+ "\n1-Áudio e vídeo: "+qtdSeg1
-						+ "\n2-Alimentício"+qtdSeg2
-						+ "\n3-Eletrodomésticos"+qtdSeg3
-						+ "\n4-Informática"+qtdSeg4
-						+ "\n5-Vestuário"+qtdSeg5
-						+ "\n "
-						+ "\nMédia de impostos por Segmentos: "
-						+ "\nÁudio e vídeo: Municipal: "+seg1ImpM+" Estadual: "+seg1ImpE+" Federal: "+seg1ImpF
-						+ "\nAlimentício: Municipal: "+seg2ImpM+" Estadual: "+seg2ImpE+" Federal: "+seg2ImpF
-						+ "\nEletrodomésticos: Municipal: "+seg3ImpM+" Estadual: "+seg3ImpE+" Federal: "+seg3ImpF
-						+ "\nInformática: Municipal: "+seg4ImpM+" Estadual: "+seg4ImpE+" Federal: "+seg4ImpF
-						+ "\nVestuário: Municipal: "+seg5ImpM+" Estadual: "+seg5ImpE+" Federal: "+seg5ImpF);
+				JOptionPane.showMessageDialog(null,
+						"" + "Quantidade de produtos cadastrados: " + produto.size()
+								+ "\nQuantidade de produtos por segmento: " + "\n1-Áudio e vídeo: " + qtdSeg1
+								+ "\n2-Alimentício" + qtdSeg2 + "\n3-Eletrodomésticos" + qtdSeg3 + "\n4-Informática"
+								+ qtdSeg4 + "\n5-Vestuário" + qtdSeg5 + "\n " + "\nMédia de impostos por Segmentos: "
+								+ "\nÁudio e vídeo: Municipal: " + seg1ImpM + " Estadual: " + seg1ImpE + " Federal: "
+								+ seg1ImpF + "\nAlimentício: Municipal: " + seg2ImpM + " Estadual: " + seg2ImpE
+								+ " Federal: " + seg2ImpF + "\nEletrodomésticos: Municipal: " + seg3ImpM + " Estadual: "
+								+ seg3ImpE + " Federal: " + seg3ImpF + "\nInformática: Municipal: " + seg4ImpM
+								+ " Estadual: " + seg4ImpE + " Federal: " + seg4ImpF + "\nVestuário: Municipal: "
+								+ seg5ImpM + " Estadual: " + seg5ImpE + " Federal: " + seg5ImpF);
 
 			}
 			System.out.println(response);
