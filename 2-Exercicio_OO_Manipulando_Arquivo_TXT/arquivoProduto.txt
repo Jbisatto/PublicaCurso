@@ -1,0 +1,3 @@
+tv,1000.0
+Celular,2000.0
+Ar-condionado,2000.0
