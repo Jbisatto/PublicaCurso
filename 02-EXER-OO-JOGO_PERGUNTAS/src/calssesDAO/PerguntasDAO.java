@@ -161,31 +161,38 @@ public class PerguntasDAO {
 
 	public String eliminarUma(int sorteioPergunta) {
 		Random aleatorio = new Random();
-		
-		
 		boolean sair = true;
+		int resposta=0;
+
+		if (listaPerguntas.get(sorteioPergunta).getAlternativa1()
+				.equals(listaPerguntas.get(sorteioPergunta).getResposta())) {
+			resposta = 1;
+		}
+
+		if (listaPerguntas.get(sorteioPergunta).getAlternativa2()
+				.equals(listaPerguntas.get(sorteioPergunta).getResposta())) {
+			resposta = 2;
+		}
+
+		if (listaPerguntas.get(sorteioPergunta).getAlternativa3()
+				.equals(listaPerguntas.get(sorteioPergunta).getResposta())) {
+			resposta = 3;
+		}
+		if (listaPerguntas.get(sorteioPergunta).getAlternativa4()
+				.equals(listaPerguntas.get(sorteioPergunta).getResposta())) {
+			resposta = 4;
+		}
 		while (sair) {
 			int valor = aleatorio.nextInt(4) + 1;
-			System.out.println(valor);
-			if (valor == 1) {
-				if (listaPerguntas.get(sorteioPergunta).getAlternativa1()
-						.equals(listaPerguntas.get(sorteioPergunta).getResposta())) {
+			if(valor!=resposta) {
+				if(valor==1) {
+					return listaPerguntas.get(sorteioPergunta).getAlternativa1();
+				}else if(valor==2) {
 					return listaPerguntas.get(sorteioPergunta).getAlternativa2();
-				}
-			} else if (valor == 2) {
-				if (listaPerguntas.get(sorteioPergunta).getAlternativa2()
-						.equals(listaPerguntas.get(sorteioPergunta).getResposta())) {
+				}else if(valor==3) {
+					return listaPerguntas.get(sorteioPergunta).getAlternativa3();
+				}else if(valor==4) {
 					return listaPerguntas.get(sorteioPergunta).getAlternativa4();
-				}
-			} else if (valor == 3) {
-				if (listaPerguntas.get(sorteioPergunta).getAlternativa3()
-						.equals(listaPerguntas.get(sorteioPergunta).getResposta())) {
-					return listaPerguntas.get(sorteioPergunta).getAlternativa2();
-				}
-			} else if (valor == 4) {
-				if (listaPerguntas.get(sorteioPergunta).getAlternativa4()
-						.equals(listaPerguntas.get(sorteioPergunta).getResposta())) {
-					return listaPerguntas.get(sorteioPergunta).getAlternativa2();
 				}
 			}
 		}

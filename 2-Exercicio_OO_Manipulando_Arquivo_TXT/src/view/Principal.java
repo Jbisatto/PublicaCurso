@@ -170,11 +170,11 @@ public class Principal {
 							produtoDAO.alterarProduto(produtoAlterar, acaoAlterar);
 							produtoDAO.saltarTxtProduto();
 						} else if (acaoProduto == 4) {
-							int acaoRemover = Integer.parseInt(JOptionPane.showInputDialog("Lista de Usuários\n"
-									+ loginDAo.buscarTodos() + "\n----------------------------------\n"
-									+ "Digite o código do usuáro parar remover:"));
-//							loginDAo.removerLogin(acaoAlterar);
-							loginDAo.saltarTxtLogin();
+							int acaoRemover = Integer.parseInt(JOptionPane.showInputDialog("Lista de Produtos\n"
+									+ produtoDAO.buscarTodos() + "\n----------------------------------\n"
+									+ "Digite o código do produto parar remover:"));
+							produtoDAO.removerProduto(acaoRemover);
+							produtoDAO.saltarTxtProduto();
 						} else {
 							sairProdutos = false;
 						}
@@ -191,13 +191,56 @@ public class Principal {
 				}
 			}
 		} else if (resposta == 'G') {
-			int acao = Integer.parseInt(JOptionPane.showInputDialog("Gerente logado:\n1-Cadastrar Produtos\n2-Sair"));
+			boolean sairGerente = true;
+			while (sairGerente) {
+				int acaoGerente = Integer
+						.parseInt(JOptionPane.showInputDialog("Gerente logado:\n1-Cadastrar Produtos\n2-Sair"));
+				if (acaoGerente == 1) {
+					boolean sairProdutos = true;
+					while (sairProdutos) {
+						Produto produto = new Produto();
+						ProdutoDAO produtoDAO = new ProdutoDAO();
+						int acaoProduto = Integer.parseInt(JOptionPane.showInputDialog(
+								"Cadastrar ou Editar Produtos:\n1-Cadastrar\n2-Listar\n3-Alterar\n4-Remover\n5-Sair"));
 
-			JOptionPane.showMessageDialog(null, resposta);
+						if (acaoProduto == 1) {
+							produto.setNomeProduto(JOptionPane.showInputDialog("Insira nome produto:"));
+							produto.setValor(Double.parseDouble(JOptionPane.showInputDialog("Insirar o valor:")));
+							produtoDAO.salvarProduto(produto);
+							produtoDAO.saltarTxtProduto();
+						} else if (acaoProduto == 2) {
+							JOptionPane.showMessageDialog(null, "Lista de Produtos\n" + produtoDAO.buscarTodos());
+						} else if (acaoProduto == 3) {
+							int acaoAlterar = Integer.parseInt(JOptionPane.showInputDialog("Lista de Produtos\n"
+									+ produtoDAO.buscarTodos() + "\n----------------------------------\n"
+									+ "Digite o código do produto parar alterar:"));
+
+							Produto produtoAlterar = new Produto();
+							produtoAlterar = produtoDAO.buscarId(acaoAlterar);
+							produtoAlterar.setNomeProduto(JOptionPane.showInputDialog(
+									"Digite um novo nome Produto( " + produtoAlterar.getNomeProduto() + " ):"));
+							produtoAlterar.setValor(Double.parseDouble(JOptionPane
+									.showInputDialog("Digite uma nova senha( " + produtoAlterar.getValor() + " ):")));
+
+							produtoDAO.alterarProduto(produtoAlterar, acaoAlterar);
+							produtoDAO.saltarTxtProduto();
+						} else if (acaoProduto == 4) {
+							int acaoRemover = Integer.parseInt(JOptionPane.showInputDialog("Lista de Produtos\n"
+									+ produtoDAO.buscarTodos() + "\n----------------------------------\n"
+									+ "Digite o código do produto parar remover:"));
+							produtoDAO.removerProduto(acaoRemover);
+							produtoDAO.saltarTxtProduto();
+						}else {
+							sairProdutos = false;
+						}
+					}
+				} else if (acaoGerente == 2) {
+					sairGerente = false;
+				}
+			}
 		} else {
 			JOptionPane.showMessageDialog(null, "Login/Senha incorretas!!!");
 		}
-		JOptionPane.showMessageDialog(null, resposta);
 
 	}
 

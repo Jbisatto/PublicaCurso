@@ -20,7 +20,7 @@ public class SistemaPrincipal {
 		Random aleatorio = new Random();
 		int qtdJogador=0;
 
-		boolean sair = true, sairJogo = true, perguntaSelecionada = true;
+		boolean sairJogo = true, perguntaSelecionada = true;
 		
 		JogadorDAO jogadorDAO = new JogadorDAO();
 
@@ -33,8 +33,8 @@ public class SistemaPrincipal {
 			jogador.setNomeJogador(JOptionPane.showInputDialog("Digite o nome do Jogador!"));
 			qtdJogador++;
 			Date dataHoraAtual = new Date();
+			boolean sair = true;
 			while (sair) {
-//			int valor = aleatorio.nextInt(4) + 1;
 
 				while (perguntaSelecionada) {
 					sorteioPergunta = aleatorio.nextInt(10);
@@ -110,7 +110,7 @@ public class SistemaPrincipal {
 			}
 		}
 
-		JOptionPane.showInputDialog(jogadorDAO);
+		JOptionPane.showMessageDialog(null,jogadorDAO.buscarTodos());
 
 	}
 

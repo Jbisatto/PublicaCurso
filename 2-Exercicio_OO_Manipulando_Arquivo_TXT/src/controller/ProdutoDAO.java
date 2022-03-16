@@ -53,4 +53,9 @@ public class ProdutoDAO {
 		
 	}
 
+	public void removerProduto(int acaoRemover) {
+		listaProduto.remove(acaoRemover);
+		
+	}
+
 }
