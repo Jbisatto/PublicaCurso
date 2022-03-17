@@ -2,12 +2,9 @@ package view;
 
 import javax.swing.JOptionPane;
 
-import controller.MarcaDAO;
 import controller.VendaDAO;
-import model.Marca;
 import model.Venda;
 import service.FuncionarioService;
-import service.MarcaService;
 import service.ProdutoService;
 import service.VendaService;
 

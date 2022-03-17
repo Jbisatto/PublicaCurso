@@ -2,9 +2,7 @@ package view;
 
 import javax.swing.JOptionPane;
 
-import controller.FuncionarioDAO;
 import controller.MarcaDAO;
-import model.Funcionario;
 import model.Marca;
 import service.MarcaService;
 

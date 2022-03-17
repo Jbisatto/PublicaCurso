@@ -1,12 +1,10 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import model.Funcionario;
 import model.Produto;
 import model.Venda;
-import model.Vendedor;
 
 public class VendaDAO implements ICrud<Venda> {
 
@@ -30,7 +28,7 @@ public class VendaDAO implements ICrud<Venda> {
 	}
 
 	public String listaVendaTxt() {
-		String lista = "Lista:\n", nomeProduto = "";
+		String lista = "Lista:\n";
 		Produto produto = new Produto();
 		Funcionario funcionario = new Funcionario();
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();

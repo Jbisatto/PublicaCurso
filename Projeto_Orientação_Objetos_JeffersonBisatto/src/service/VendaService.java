@@ -2,9 +2,7 @@ package service;
 
 import javax.swing.JOptionPane;
 
-import controller.MarcaDAO;
 import controller.VendaDAO;
-import model.Marca;
 import model.Venda;
 
 public class VendaService {

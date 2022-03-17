@@ -1,11 +1,8 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.JOptionPane;
 
-import model.Funcionario;
 import model.Produto;
 
 public class ProdutoDAO implements ICrud<Produto> {
