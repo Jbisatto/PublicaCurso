@@ -6,8 +6,8 @@ public class Administrador extends Funcionario implements IComissao {
 		super();
 	}
 
-	public Administrador(String nome, int telefone, String email, String login, String senha, double salario, char tipo,
-			String perguntaSenha) {
+	public Administrador(String nome, String telefone, String email, String login, String senha, double salario,
+			char tipo, String perguntaSenha) {
 		super(nome, telefone, email, login, senha, salario, tipo, perguntaSenha);
 		// TODO Auto-generated constructor stub
 	}

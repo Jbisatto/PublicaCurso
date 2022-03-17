@@ -2,8 +2,10 @@ package model;
 
 public class Funcionario {
 
+
+
 	private String nome;
-	private int telefone;
+	private String telefone;
 	private String email;
 	private String login;
 	private String senha;
@@ -15,8 +17,8 @@ public class Funcionario {
 
 	}
 
-    public Funcionario(String nome, int telefone, String email, String login, String senha, double salario, char tipo,
-			String perguntaSenha) {
+	public Funcionario(String nome, String telefone, String email, String login, String senha, double salario,
+			char tipo, String perguntaSenha) {
 		super();
 		this.nome = nome;
 		this.telefone = telefone;
@@ -27,8 +29,6 @@ public class Funcionario {
 		this.tipo = tipo;
 		this.perguntaSenha = perguntaSenha;
 	}
-
-
 
 	public char getTipo() {
 		return tipo;
@@ -46,11 +46,11 @@ public class Funcionario {
 		this.nome = nome;
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
@@ -92,5 +92,10 @@ public class Funcionario {
 
 	public void setPerguntaSenha(String perguntaSenha) {
 		this.perguntaSenha = perguntaSenha;
+	}
+	@Override
+	public String toString() {
+		return "  Nome:" + nome + ", telefone:" + telefone + ", email:" + email + ", login:" + login
+				+ ", senha:" + senha + ", salario:" + salario + ", tipo:" + tipo + ", perguntaSenha:" + perguntaSenha;
 	}
 }

@@ -28,7 +28,7 @@ public class VendaDAO implements ICrud {
 	}
 
 	@Override
-	public void alterar(Object obj) {
+	public void alterar(Object obj, int index) {
 		// TODO Auto-generated method stub
 
 	}

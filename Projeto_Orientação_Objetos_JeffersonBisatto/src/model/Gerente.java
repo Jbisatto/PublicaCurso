@@ -6,7 +6,7 @@ public class Gerente extends Funcionario implements IComissao {
 		super();
 	}
 
-	public Gerente(String nome, int telefone, String email, String login, String senha, double salario, char tipo,
+	public Gerente(String nome, String telefone, String email, String login, String senha, double salario, char tipo,
 			String perguntaSenha) {
 		super(nome, telefone, email, login, senha, salario, tipo, perguntaSenha);
 		// TODO Auto-generated constructor stub
