@@ -11,20 +11,23 @@ public class AdministradoView {
 						+ "\n2-Gerenciar Marcas" + "\n3-Gerenciar Produtos" + "\n4-Realizar Venda" + "\n5-Fazer Logout"));
 				switch (acao) {
 				case 1: {
-						FuncionarioView usuarioview = new FuncionarioView();
-						usuarioview.tela("ADIMINISTRADOR");
+					FuncionarioView usuarioview = new FuncionarioView();
+					usuarioview.tela("ADIMINISTRADOR");
 					break;
 				}
 				case 2: {
-
+					MarcasView marcaView = new MarcasView();
+					marcaView.tela("ADIMINISTRADOR");
 					break;
 				}
 				case 3: {
-
+					ProdutoView produtoView = new ProdutoView();
+					produtoView.tela("ADIMINISTRADOR");
 					break;
 				}
 				case 4: {
-
+					VendasView vendaView = new VendasView();
+					vendaView.tela("ADIMINISTRADOR");
 					break;
 				}
 				case 5: {

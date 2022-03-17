@@ -2,11 +2,13 @@ package controller;
 
 import java.util.List;
 
-public interface ICrud {
-	
-	public void cadastrar(Object obj);
+public interface ICrud<T> {
+
+	public void cadastrar(T obj);
+
 	public void remover(int index);
-	public List<Object> listarTodos();
-	public void alterar(Object obj, int index);
+
+
+	public void alterar(T obj, int index);
 
 }

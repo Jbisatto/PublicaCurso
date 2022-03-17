@@ -4,18 +4,16 @@ public class Produto {
 
 	private int id_marca;
 	private String nome;
-	private int quantidade;
 	private double valor;
 
 	public Produto() {
 
 	}
 
-	public Produto(int id_marca, String nome, int quantidade, double valor) {
+	public Produto(int id_marca, String nome, double valor) {
 		super();
 		this.id_marca = id_marca;
 		this.nome = nome;
-		this.quantidade = quantidade;
 		this.valor = valor;
 	}
 
@@ -35,13 +33,6 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
 
 	public double getValor() {
 		return valor;
@@ -49,6 +40,11 @@ public class Produto {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+
+	@Override
+	public String toString() {
+		return ", Nome:" + nome + ", valor:" + valor;
 	}
 
 }

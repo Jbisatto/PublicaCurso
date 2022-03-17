@@ -1,10 +1,11 @@
-package controller;
+package service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import controller.FuncionarioDAO;
 import model.Funcionario;
 
 public class LoginService {

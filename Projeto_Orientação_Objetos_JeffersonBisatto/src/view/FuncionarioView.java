@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import controller.FuncionarioDAO;
 import model.Funcionario;
+import service.FuncionarioService;
 
 public class FuncionarioView {
 
@@ -49,14 +50,15 @@ public class FuncionarioView {
 
 		Funcionario funcionario = new Funcionario();
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+		FuncionarioService funcionarioService = new FuncionarioService();
 		funcionario.setNome(JOptionPane.showInputDialog("Digite o nome do usuário"));
 		funcionario.setTelefone(JOptionPane.showInputDialog("Digite o telefone do usuário"));
 		funcionario.setEmail(JOptionPane.showInputDialog("Digite o email do usuário"));
 		funcionario.setLogin(JOptionPane.showInputDialog("Digite o login do usuário"));
 		funcionario.setSenha(JOptionPane.showInputDialog("Digite a senha do usuário"));
 		funcionario.setPerguntaSenha(JOptionPane.showInputDialog("Digite a data de nascimento do Pai"));
-		funcionario.setSalario(validaSalario(" "));
-		funcionario.setTipo(validaTipo(" "));
+		funcionario.setSalario(funcionarioService.validaSalario(" "));
+		funcionario.setTipo(funcionarioService.validaTipo(" "));
 
 		funcionarioDAO.cadastrar(funcionario);
 	}
@@ -65,7 +67,8 @@ public class FuncionarioView {
 		int index;
 		Funcionario funcionario = new Funcionario();
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-		index = pedirId(" alterar ");
+		FuncionarioService funcionarioService = new FuncionarioService();
+		index = funcionarioService.pedirId(" alterar ");
 		if (index != -1) {
 			funcionario = funcionarioDAO.buscarIndex(index);
 			funcionario.setNome(
@@ -80,8 +83,8 @@ public class FuncionarioView {
 					JOptionPane.showInputDialog("Digite a nova senha do usuário( " + funcionario.getSenha() + ")"));
 			funcionario.setPerguntaSenha(JOptionPane
 					.showInputDialog("Digite a data de nascimento do Pai( " + funcionario.getPerguntaSenha() + ")"));
-			funcionario.setSalario(validaSalario(" novo "));
-			funcionario.setTipo(validaTipo(" novo "));
+			funcionario.setSalario(funcionarioService.validaSalario(" novo "));
+			funcionario.setTipo(funcionarioService.validaTipo(" novo "));
 
 			funcionarioDAO.alterar(funcionario, index);
 		}
@@ -90,70 +93,10 @@ public class FuncionarioView {
 	public void removerUsuario() {
 
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-		funcionarioDAO.remover(pedirId(" remover "));
+		FuncionarioService funcionarioService = new FuncionarioService();
+		funcionarioDAO.remover(funcionarioService.pedirIdSemAdm(" remover "));
 	}
 
-//Esse metodo pede o id para alterar validando o que é digitado retornando um index do funcionario ou -1 se ele cancelar a alteração
-	public int pedirId(String frase) {
-		int respostas;
-		String validaResposta;
-		Funcionario funcionario = new Funcionario();
-		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-		while (true) {
-			try {
-				validaResposta = JOptionPane
-						.showInputDialog(funcionarioDAO.listaFuncionarioTxt() + "\nDigite o codigo para" + frase + ":");
-				if (validaResposta == null) {
-					respostas = -1;
-					break;
-				}
-				respostas = Integer.parseInt(validaResposta);
 
-				funcionario = funcionarioDAO.buscarIndex(respostas);
-				if (funcionario == null) {
-					throw new IllegalArgumentException("Valor invalido");
-				}
-				break;
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Digite um caracter invalido!!!");
-			}
-		}
-		return respostas;
-	}
 
-//	Valida Salario não aceirtando um String
-	public Double validaSalario(String frase) {
-		double salario = 0;
-		while (true) {
-			try {
-				salario = Double.parseDouble(JOptionPane.showInputDialog("Digite o" + frase + "salário do usuário"));
-				break;
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Digite um valor válido!!!");
-			}
-		}
-		return salario;
-	}
-
-//	Valida Tipo, entra num laço até que seja escolhido o tipo certo	
-	public char validaTipo(String frase) {
-		int tipo = 0;
-		char tipoFuncionario = ' ';
-		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-		while (true) {
-			try {
-				tipo = Integer.parseInt(JOptionPane.showInputDialog(
-						"Digite o" + frase + "Tipo de Funcionário\n1-Administrador\n2-Gerente\n3-Vendedor"));
-				tipoFuncionario = funcionarioDAO.buscarTipoCadastrar(tipo);
-				if (tipoFuncionario != 'E') {
-					break;
-				} else {
-					JOptionPane.showMessageDialog(null, "Opção invalida!!!");
-				}
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Digite um caracter invalido!!!");
-			}
-		}
-		return tipoFuncionario;
-	}
 }

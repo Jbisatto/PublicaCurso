@@ -3,7 +3,7 @@ package view;
 import javax.swing.JOptionPane;
 
 import controller.FuncionarioDAO;
-import controller.LoginService;
+import service.LoginService;
 
 public class LoginView {
 
@@ -14,7 +14,7 @@ public class LoginView {
 		while (true) {
 
 			int indexUsuario = loginView();
-			if (indexUsuario == -3) {
+			if (indexUsuario == -3) {             //clicou em cancelar
 				break;
 			}
 			char senhaVerificada = funcionarioDAO.buscarTipo(indexUsuario);
@@ -44,8 +44,9 @@ public class LoginView {
 
 		while (resposta == -2) {
 			String login = JOptionPane
-					.showInputDialog("Digite o login\nDigite: \n1-Esqueceu a senha!\nSair (Calcelar)");
-			if (login==null) {
+					.showInputDialog("---------------------LOGIN---------------------"
+							+ "\n\n\n\nDigite:\n1-Esqueceu a senha! / Sair (Calcelar)");
+			if (login==null) {//caso apertou em cancelar
 				resposta = -3;
 				break;
 			}
