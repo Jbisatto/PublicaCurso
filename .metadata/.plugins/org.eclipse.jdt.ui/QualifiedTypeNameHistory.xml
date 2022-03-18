@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-    <fullyQualifiedTypeName name="java.util.Calendar"/>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="Modelo.Pessoa"/>
     <fullyQualifiedTypeName name="modelo.Provas"/>
     <fullyQualifiedTypeName name="modelo.Notas"/>
@@ -49,7 +46,6 @@
     <fullyQualifiedTypeName name="service.MarcaService"/>
     <fullyQualifiedTypeName name="service.ProdutoService"/>
     <fullyQualifiedTypeName name="service.VendaService"/>
-    <fullyQualifiedTypeName name="model.Vendedor"/>
     <fullyQualifiedTypeName name="controller.FuncionarioDAO"/>
     <fullyQualifiedTypeName name="model.Funcionario"/>
     <fullyQualifiedTypeName name="model.Marca"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="controller.VendaDAO"/>
     <fullyQualifiedTypeName name="service.FuncionarioService"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="service.PopuladorService"/>
+    <fullyQualifiedTypeName name="model.Gerente"/>
+    <fullyQualifiedTypeName name="model.Vendedor"/>
+    <fullyQualifiedTypeName name="java.text.NumberFormat"/>
 </qualifiedTypeNameHistroy>

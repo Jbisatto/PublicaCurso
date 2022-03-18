@@ -9,7 +9,7 @@ import service.ProdutoService;
 import service.VendaService;
 
 public class VendasView {
-	
+
 	/**
 	 * Monta a Tela de cadastramento de Vendas
 	 */
@@ -65,7 +65,7 @@ public class VendasView {
 		VendaDAO vendaDAO = new VendaDAO();
 		FuncionarioService funcionarioService = new FuncionarioService();
 		ProdutoService produtoService = new ProdutoService();
-		venda.setId_funcionario(funcionarioService.pedirId(" adicionar Vendedor:",true));
+		venda.setId_funcionario(funcionarioService.pedirId(" adicionar Vendedor:", true));
 		venda.setId_produto(produtoService.pedirIdProduto(" adicionar nas Venda"));
 		venda.setQtdProdutos(produtoService.validarQuantidade());
 
@@ -97,16 +97,17 @@ public class VendasView {
 	}
 
 	/**
-	 * Executa a remoção de Vendas
+	 * Executa a remoção de Vendas, o index será -1 quando o for cancelado
 	 */
 	private void removerVenda() {
 		VendaDAO vendaDAO = new VendaDAO();
 		VendaService vendaService = new VendaService();
-		if(vendaDAO.remover(vendaService.pedirIdVenda(" remover "))){
-			JOptionPane.showMessageDialog(null, "Venda Removida!!!");
+		int index = vendaService.pedirIdVenda(" remover ");
+		if (index != -1) {
+			if (vendaDAO.remover(index)) {
+				JOptionPane.showMessageDialog(null, "Venda Removida!!!");
+			}
 		}
-
 	}
-
 
 }

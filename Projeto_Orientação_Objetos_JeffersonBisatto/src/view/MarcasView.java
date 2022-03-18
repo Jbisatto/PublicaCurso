@@ -88,12 +88,14 @@ public class MarcasView {
 	private void removerMarca() {
 		MarcaDAO marcaDAO = new MarcaDAO();
 		MarcaService marcaService = new MarcaService();
-
-		if (marcaDAO.remover(marcaService.pedirIdMarca(" remover "))) {
-			JOptionPane.showMessageDialog(null, "Marca removida!!!");
-		} else {
-			JOptionPane.showMessageDialog(null,
-					"Essa marca não pode ser removida pois existe Produtos vinculados a ela!!!");
+		int index = marcaService.pedirIdMarca(" remover ");
+		if (index != -1) {
+			if (marcaDAO.remover(index)) {
+				JOptionPane.showMessageDialog(null, "Marca removida!!!");
+			} else {
+				JOptionPane.showMessageDialog(null,
+						"Essa marca não pode ser removida pois existe Produtos vinculados a ela!!!");
+			}
 		}
 
 	}

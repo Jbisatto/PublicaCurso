@@ -99,13 +99,15 @@ public class ProdutoView {
 	private void removerProduto() {
 		ProdutoDAO produtoDAO = new ProdutoDAO();
 		ProdutoService produtoService = new ProdutoService();
-		if (produtoDAO.remover(produtoService.pedirIdProduto(" remover"))) {
-			JOptionPane.showMessageDialog(null, "Produto removido!!!");
-		} else {
-			JOptionPane.showMessageDialog(null,
-					"Esse Produto não pode ser removida pois existe Vendas vinculados a ele!!!");
+		int index = produtoService.pedirIdProduto(" remover");
+		if (index != -1) {
+			if (produtoDAO.remover(index)) {
+				JOptionPane.showMessageDialog(null, "Produto removido!!!");
+			} else {
+				JOptionPane.showMessageDialog(null,
+						"Esse Produto não pode ser removida pois existe Vendas vinculados a ele!!!");
+			}
 		}
-
 	}
 
 }

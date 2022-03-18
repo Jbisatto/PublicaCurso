@@ -62,8 +62,8 @@ public class AdministradoView {
 	public void gerarExtrato() {
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		JOptionPane.showMessageDialog(null,
-				"------------------------------------------------------EXTRATO COMISSÕES"
-						+ "------------------------------------------------------" + "\n"
+				"-----------------------------------------------------------------EXTRATO COMISSÕES"
+						+ "-----------------------------------------------------------------" + "\n"
 						+ funcionarioDAO.listaComissoesVendas());
 
 	}

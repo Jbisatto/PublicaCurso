@@ -94,6 +94,9 @@ public class LoginService {
 			int retornoRecuperacao = -1;
 			login = JOptionPane.showInputDialog("Recuperação de Senha\nNumeros de tentativas restantes :"
 					+ (3 - erroRecuperacao) + "\nDigite o login");
+			if(login==null) {
+				break;
+			}
 			if (funcionarioDAO.buscarLogin(login)) {
 				retornoRecuperacao = recuperacaoLogin(login);
 			}

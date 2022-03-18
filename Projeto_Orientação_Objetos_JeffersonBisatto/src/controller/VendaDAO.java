@@ -1,5 +1,6 @@
 package controller;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import model.Funcionario;
@@ -61,6 +62,7 @@ public class VendaDAO implements ICrud<Venda> {
 	 * comissão do Funcionario passado no index
 	 */
 	public String extratoVendas(int index, String cargo) {
+		NumberFormat z = NumberFormat.getCurrencyInstance();
 		int qtdVendas = 0;
 		double valor = 0, comissao = 0;
 		ProdutoDAO produtoDAO = new ProdutoDAO();
@@ -73,7 +75,7 @@ public class VendaDAO implements ICrud<Venda> {
 			}
 		}
 		comissao = produtoService.calculaComissao(cargo, valor);
-		return "  Qtd Vendas: " + qtdVendas + "  Total de Vendas: " + valor + "  Comissao: " + comissao;
+		return "  Qtd Vendas: " + qtdVendas + "  Total de Vendas: " +z.format(valor) + "  Comissao: " +z.format(comissao);
 	}
 
 	/**

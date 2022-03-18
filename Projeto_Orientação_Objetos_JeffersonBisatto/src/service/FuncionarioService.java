@@ -26,7 +26,7 @@ public class FuncionarioService {
 					break;
 				}
 				respostas = Integer.parseInt(validaResposta);
-				if (respostas == 0) {
+				if (respostas == 0 && !mostraAdm) {
 					throw new IllegalArgumentException("Valor invalido");
 				}
 

@@ -12,6 +12,9 @@ public class Administrador extends Funcionario implements IComissao {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Calcula a comissão do Administrador
+	 */
 	@Override
 	public double comissao(double valor) {
 

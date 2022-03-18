@@ -49,7 +49,7 @@ public class LoginView {
 
 		while (resposta == -2) {
 			String login = JOptionPane.showInputDialog("---------------------LOGIN---------------------"
-					+ "\n\n\n\nDigite:\n1-Esqueceu a senha! / Sair (Calcelar)");
+					+ "\n\nDigite:1-Esqueceu a senha\nSair(Calcelar)");
 			if (login == null) {// caso apertou em cancelar
 				resposta = -3;
 				break;
