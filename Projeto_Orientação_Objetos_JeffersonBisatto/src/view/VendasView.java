@@ -9,13 +9,22 @@ import service.ProdutoService;
 import service.VendaService;
 
 public class VendasView {
+	
+	/**
+	 * Monta a Tela de cadastramento de Vendas
+	 */
 	public void tela(String tipoUsuario) {
 		boolean senhaVerificada = true;
+		String verifica;
 //		Criar, Alterar e Excluir
 		while (senhaVerificada) {
 			try {
-				int acao = Integer.parseInt(JOptionPane.showInputDialog(tipoUsuario + " LOGADO\n1-Cadastrar Venda"
-						+ "\n2-Alterar Venda" + "\n3-Remover Venda" + "\n4-Sair"));
+				verifica = JOptionPane.showInputDialog(tipoUsuario + " LOGADO\n1-Cadastrar Venda" + "\n2-Alterar Venda"
+						+ "\n3-Remover Venda" + "\n4-Sair");
+				if (verifica == null) {
+					break;
+				}
+				int acao = Integer.parseInt(verifica);
 				switch (acao) {
 				case 1: {
 					cadastrarVenda();
@@ -47,13 +56,16 @@ public class VendasView {
 
 	}
 
+	/**
+	 * Executa o cadastramento de Vendas
+	 */
 	private void cadastrarVenda() {
 
 		Venda venda = new Venda();
 		VendaDAO vendaDAO = new VendaDAO();
 		FuncionarioService funcionarioService = new FuncionarioService();
 		ProdutoService produtoService = new ProdutoService();
-		venda.setId_funcionario(funcionarioService.pedirId(" adicionar Vendedor:"));
+		venda.setId_funcionario(funcionarioService.pedirId(" adicionar Vendedor:",true));
 		venda.setId_produto(produtoService.pedirIdProduto(" adicionar nas Venda"));
 		venda.setQtdProdutos(produtoService.validarQuantidade());
 
@@ -61,7 +73,9 @@ public class VendasView {
 
 	}
 
-
+	/**
+	 * Executa a alteração de Vendas
+	 */
 	private void alterarVenda() {
 		int index;
 		Venda venda = new Venda();
@@ -73,7 +87,7 @@ public class VendasView {
 		index = vendaService.pedirIdVenda(" alterar ");
 		if (index != -1) {
 			venda = vendaDAO.buscarIndex(index);
-			venda.setId_funcionario(funcionarioService.pedirId(" alterar Vendedor:"));
+			venda.setId_funcionario(funcionarioService.pedirId(" alterar Vendedor:", true));
 			venda.setId_produto(produtoService.pedirIdProduto(" alterar nas Venda"));
 			venda.setQtdProdutos(produtoService.validarQuantidade());
 
@@ -82,11 +96,17 @@ public class VendasView {
 		}
 	}
 
+	/**
+	 * Executa a remoção de Vendas
+	 */
 	private void removerVenda() {
 		VendaDAO vendaDAO = new VendaDAO();
 		VendaService vendaService = new VendaService();
-		vendaDAO.remover(vendaService.pedirIdVenda(" remover "));
+		if(vendaDAO.remover(vendaService.pedirIdVenda(" remover "))){
+			JOptionPane.showMessageDialog(null, "Venda Removida!!!");
+		}
 
 	}
+
 
 }

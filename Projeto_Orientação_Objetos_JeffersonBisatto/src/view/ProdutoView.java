@@ -9,13 +9,21 @@ import service.ProdutoService;
 
 public class ProdutoView {
 
+	/**
+	 * Monta a Tela de cadastramento de Produtos
+	 */
 	public void tela(String tipoUsuario) {
 		boolean senhaVerificada = true;
-//		Criar, Alterar e Excluir
+		String verifica;
 		while (senhaVerificada) {
 			try {
-				int acao = Integer.parseInt(JOptionPane.showInputDialog(tipoUsuario + " LOGADO\n1-Cadastrar Produto"
-						+ "\n2-Alterar Produto" + "\n3-Remover Produto" + "\n4-Sair"));
+				verifica = JOptionPane.showInputDialog(tipoUsuario + " LOGADO\n1-Cadastrar Produto"
+						+ "\n2-Alterar Produto" + "\n3-Remover Produto" + "\n4-Sair");
+				if (verifica == null) {
+					break;
+				}
+
+				int acao = Integer.parseInt(verifica);
 				switch (acao) {
 				case 1: {
 					cadastrarProduto();
@@ -47,6 +55,9 @@ public class ProdutoView {
 
 	}
 
+	/**
+	 * Executa o cadastramento de Produtos
+	 */
 	private void cadastrarProduto() {
 		int index;
 		Produto produto = new Produto();
@@ -63,6 +74,9 @@ public class ProdutoView {
 
 	}
 
+	/**
+	 * Executa a alteração de Produtos
+	 */
 	private void alterarProduto() {
 		int index;
 		Produto produto = new Produto();
@@ -79,10 +93,18 @@ public class ProdutoView {
 		}
 	}
 
+	/**
+	 * Executa a remoção de Usuários
+	 */
 	private void removerProduto() {
 		ProdutoDAO produtoDAO = new ProdutoDAO();
 		ProdutoService produtoService = new ProdutoService();
-		produtoDAO.remover(produtoService.pedirIdProduto(" remover"));
+		if (produtoDAO.remover(produtoService.pedirIdProduto(" remover"))) {
+			JOptionPane.showMessageDialog(null, "Produto removido!!!");
+		} else {
+			JOptionPane.showMessageDialog(null,
+					"Esse Produto não pode ser removida pois existe Vendas vinculados a ele!!!");
+		}
 
 	}
 

@@ -8,13 +8,20 @@ import service.MarcaService;
 
 public class MarcasView {
 
+	/**
+	 * Monta a Tela de cadastramento de Marcas
+	 */
 	public void tela(String tipoUsuario) {
 		boolean senhaVerificada = true;
-//		Criar, Alterar e Excluir
+		String verifica;
 		while (senhaVerificada) {
 			try {
-				int acao = Integer.parseInt(JOptionPane.showInputDialog(tipoUsuario + " LOGADO\n1-Cadastrar Marca"
-						+ "\n2-Alterar Marca" + "\n3-Remover Marca" + "\n4-Sair"));
+				verifica = JOptionPane.showInputDialog(tipoUsuario + " LOGADO\n1-Cadastrar Marca" + "\n2-Alterar Marca"
+						+ "\n3-Remover Marca" + "\n4-Sair");
+				if (verifica == null) {
+					break;
+				}
+				int acao = Integer.parseInt(verifica);
 				switch (acao) {
 				case 1: {
 					cadastrarMarca();
@@ -46,6 +53,9 @@ public class MarcasView {
 
 	}
 
+	/**
+	 * Executa o cadastramento de Marcas
+	 */
 	private void cadastrarMarca() {
 
 		Marca marca = new Marca();
@@ -55,6 +65,9 @@ public class MarcasView {
 
 	}
 
+	/**
+	 * Executa a alteração de Marcas
+	 */
 	private void alterarMarca() {
 		int index;
 		Marca marca = new Marca();
@@ -69,13 +82,20 @@ public class MarcasView {
 		}
 	}
 
+	/**
+	 * Executa a remoção de Marcas
+	 */
 	private void removerMarca() {
 		MarcaDAO marcaDAO = new MarcaDAO();
 		MarcaService marcaService = new MarcaService();
-		marcaDAO.remover(marcaService.pedirIdMarca(" remover "));
+
+		if (marcaDAO.remover(marcaService.pedirIdMarca(" remover "))) {
+			JOptionPane.showMessageDialog(null, "Marca removida!!!");
+		} else {
+			JOptionPane.showMessageDialog(null,
+					"Essa marca não pode ser removida pois existe Produtos vinculados a ela!!!");
+		}
 
 	}
-
-
 
 }

@@ -3,12 +3,17 @@ package service;
 import javax.swing.JOptionPane;
 
 import controller.ProdutoDAO;
+import model.Administrador;
+import model.Gerente;
 import model.Produto;
+import model.Vendedor;
 
 public class ProdutoService {
-	
-	
-//	Pede o valor do Produto e valida os possiveis erros de digitação
+
+	/**
+	 * Pede o valor do Produto e valida os possiveis erros de digitação, as
+	 * variaveis são para especificar se esta cadastrando ou alterando
+	 */
 	public double validarValor(String frase, String frase2) {
 		double valor = 0;
 		while (true) {
@@ -22,9 +27,11 @@ public class ProdutoService {
 		}
 		return valor;
 	}
-	
-	// Esse metodo pede o id para alterar validando o que é digitado retornando um
-	// index da produto ou -1 se ele cancelar a alteração
+
+	/**
+	 * Esse metodo pede o id para alterar ou remover, validando o que é digitado retornando um
+	 * index da produto ou -1 se ele cancelar a alteração
+	 */
 	public int pedirIdProduto(String frase) {
 		int respostas;
 		String validaResposta;
@@ -34,13 +41,11 @@ public class ProdutoService {
 			try {
 				validaResposta = JOptionPane.showInputDialog(
 						produtoDAO.listaProdutoTxt() + "\nDigite o codigo do Produto para " + frase + ":");
-//				se apertar no botão cancelar retornará -1
 				if (validaResposta == null) {
 					respostas = -1;
 					break;
 				}
-				respostas = Integer.parseInt(validaResposta);// se digitar algo diferente de um numero sera gerado uma
-																// execeção
+				respostas = Integer.parseInt(validaResposta);
 				produto = produtoDAO.buscarIndex(respostas);
 				if (produto == null) {
 					throw new IllegalArgumentException("Valor invalido");
@@ -52,8 +57,11 @@ public class ProdutoService {
 		}
 		return respostas;
 	}
+
 	
-//	Pede o qtd do Produto e valida os possiveis erros de digitação
+	/**
+	 * Pede o qtd do Produto e valida os possiveis erros de digitação
+	 */
 	public int validarQuantidade() {
 		int valor = 0;
 		while (true) {
@@ -67,5 +75,21 @@ public class ProdutoService {
 		return valor;
 	}
 
+	/**
+	 * Calcula a comissão referente ao tipo de Funcionário
+	 */
+	public double calculaComissao(String cargo, double valor) {
+		if (cargo.equals("Administrador")) {
+			Administrador administrador = new Administrador();
+			return administrador.comissao(valor);
+
+		} else if (cargo.equals("Gerente")) {
+			Gerente gerente = new Gerente();
+			return gerente.comissao(valor);
+		} else {
+			Vendedor vendendor = new Vendedor();
+			return vendendor.comissao(valor);
+		}
+	}
 
 }

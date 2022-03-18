@@ -5,38 +5,49 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import model.Funcionario;
+import service.FuncionarioService;
 
 public class FuncionarioDAO implements ICrud<Funcionario> {
+
 	static ArrayList<Funcionario> listaFuncionario = new ArrayList<>();
 
+	/**
+	 * Cadastra um Funcionario na lista
+	 */
 	@Override
 	public void cadastrar(Funcionario obj) {
 		listaFuncionario.add(obj);
 
 	}
 
+	/**
+	 * Verifica se tem alguma venda relacionado com o Funcionario que esta tentando
+	 * remover, e remove ele da lista retornando true;
+	 */
 	@Override
-	public void remover(int index) {
-		listaFuncionario.remove(index);
-
+	public boolean remover(int index) {
+		VendaDAO vendaDAO = new VendaDAO();
+		if (vendaDAO.verificaFuncioanrio(index)) {
+			return false;
+		} else {
+			listaFuncionario.remove(index);
+			return false;
+		}
 	}
 
+	/**
+	 * Altera um Funcionario recebendo ele e o indice nele do array
+	 */
 	@Override
 	public void alterar(Funcionario obj, int index) {
 		listaFuncionario.set(index, obj);
 
 	}
 
-//retorna toda a lista de Usuarios cadastrados
-	public String listaFuncionarioTxt() {
-		String lista = "Lista:\n";
-		for (int i = 1; i < listaFuncionario.size(); i++) {
-			lista += "Cod: " + i + listaFuncionario.get(i) + "\n";
-		}
-		return lista;
-	}
-
-//verifica se o login e senha estão certo e retora o a posição do Usuario no array, caso não encontre retorna -1
+	/**
+	 * verifica se o login e senha estão certo e retora o a posição do Usuario no
+	 * array, caso não encontre retorna -1 para tratamento de erros
+	 */
 	public int verificaSenha(String login, String senha) {
 		for (int i = 0; i < listaFuncionario.size(); i++) {
 			if (listaFuncionario.get(i).getLogin().equals(login) && listaFuncionario.get(i).getSenha().equals(senha)) {
@@ -47,7 +58,9 @@ public class FuncionarioDAO implements ICrud<Funcionario> {
 		return -1;
 	}
 
-//	verifica se o login existe
+	/**
+	 * verifica se o login existe
+	 */
 	public boolean buscarLogin(String login) {
 		for (int i = 0; i < listaFuncionario.size(); i++) {
 			if (listaFuncionario.get(i).getLogin().equals(login)) {
@@ -57,7 +70,9 @@ public class FuncionarioDAO implements ICrud<Funcionario> {
 		return false;
 	}
 
-//retorna o a possição dele no array buscado pelo telefone e login
+	/**
+	 * retorna o a possição dele no array buscado pelo telefone e login
+	 */
 	public int buscarTelefone(String telefone, String login) {
 		int index = -1;
 		for (int i = 0; i < listaFuncionario.size(); i++) {
@@ -69,7 +84,9 @@ public class FuncionarioDAO implements ICrud<Funcionario> {
 		return index;
 	}
 
-//retorna o a possição dele no array buscado pelo email e login
+	/**
+	 * retorna o a possição dele no array buscado pelo email e login
+	 */
 	public int buscarEmail(String email, String login) {
 		int index = -1;
 		for (int i = 0; i < listaFuncionario.size(); i++) {
@@ -80,7 +97,9 @@ public class FuncionarioDAO implements ICrud<Funcionario> {
 		return index;
 	}
 
-//Retorna um Funcionario pelo Index, verificando se o index existe
+	/**
+	 * Retorna um Funcionario pelo Index, verificando se o index existe
+	 */
 	public Funcionario buscarIndex(int index) {
 		if (index >= 0 && index <= (listaFuncionario.size() - 1)) {
 			return listaFuncionario.get(index);
@@ -88,26 +107,38 @@ public class FuncionarioDAO implements ICrud<Funcionario> {
 		return null;
 	}
 
-//retorna o tipo de funcionario pelo Tipo dele
+	/**
+	 * retorna o tipo de funcionario pelo Tipo dele
+	 */
 	public char buscarTipo(int indexUsuario) {
 		return listaFuncionario.get(indexUsuario).getTipo();
 	}
 
-//	Retorna o tipo do usuario, ou retorna E se caso não exista esse tipo
-	public char buscarTipoCadastrar(int tipo) {
-		if (tipo == 1) {
-			return 'G';
-		} else if (tipo == 2) {
-			return 'V';
-		} else {
-			return 'E';
+	/**
+	 * Monta uma String de lista com apenas o codigo e nome do Fucnionario
+	 */
+	public String listaFuncionarioTxtPersonalizado(boolean mostraAdm) {
+		String lista = "Lista:\n";
+		for (int i = (mostraAdm) ? 0 : 1; i < listaFuncionario.size(); i++) {
+			System.out.println(i);
+			lista += "Cod: " + i + ", Nome: " + listaFuncionario.get(i).getNome() + "\n";
 		}
+		return lista;
 	}
 
-	public String listaFuncionarioTxtPersonalizado() {
-		String lista = "Lista:\n";
+	/**
+	 * Monta uma String de lista de comissões de todos os vendedores, mesmo se o
+	 * vendedor não fez venda
+	 */
+	public String listaComissoesVendas() {
+		String lista = "", cargo = "";
+		VendaDAO vendaDAO = new VendaDAO();
+		FuncionarioService funcionarioService = new FuncionarioService();
 		for (int i = 0; i < listaFuncionario.size(); i++) {
-			lista += "Cod: " + i + ", Nome: " + listaFuncionario.get(i).getNome() + "\n";
+			cargo = funcionarioService.cargoFuncionario(listaFuncionario.get(i).getTipo());
+
+			lista += "Tipo: " + cargo + "  Nome: " + listaFuncionario.get(i).getNome()
+					+ vendaDAO.extratoVendas(i, cargo) + "\n";
 		}
 		return lista;
 	}

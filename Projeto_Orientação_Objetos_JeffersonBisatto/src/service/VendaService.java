@@ -7,6 +7,10 @@ import model.Venda;
 
 public class VendaService {
 
+	/**
+	 * Pede o codigo da Venda do produto, listando todas as vendas e validando se
+	 * foi informando corretamente
+	 */
 	public int pedirIdVenda(String frase) {
 		int respostas;
 		String validaResposta;

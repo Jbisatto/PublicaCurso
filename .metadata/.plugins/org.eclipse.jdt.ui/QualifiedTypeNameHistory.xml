@@ -44,10 +44,8 @@
     <fullyQualifiedTypeName name="java.time.Duration"/>
     <fullyQualifiedTypeName name="view.MarcasView"/>
     <fullyQualifiedTypeName name="view.ProdutoView"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="view.VendasView"/>
     <fullyQualifiedTypeName name="service.LoginService"/>
-    <fullyQualifiedTypeName name="service.FuncionarioService"/>
     <fullyQualifiedTypeName name="service.MarcaService"/>
     <fullyQualifiedTypeName name="service.ProdutoService"/>
     <fullyQualifiedTypeName name="service.VendaService"/>
@@ -58,6 +56,8 @@
     <fullyQualifiedTypeName name="controller.MarcaDAO"/>
     <fullyQualifiedTypeName name="controller.ProdutoDAO"/>
     <fullyQualifiedTypeName name="model.Produto"/>
-    <fullyQualifiedTypeName name="controller.VendaDAO"/>
     <fullyQualifiedTypeName name="model.Venda"/>
+    <fullyQualifiedTypeName name="controller.VendaDAO"/>
+    <fullyQualifiedTypeName name="service.FuncionarioService"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>

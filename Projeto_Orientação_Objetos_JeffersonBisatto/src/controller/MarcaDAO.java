@@ -2,7 +2,6 @@ package controller;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
 
 import model.Marca;
 
@@ -10,30 +9,40 @@ public class MarcaDAO implements ICrud<Marca> {
 
 	static ArrayList<Marca> listaMarca = new ArrayList<>();
 
+	/**
+	 * Cadastra uma marca na lista
+	 */
 	@Override
 	public void cadastrar(Marca obj) {
 		listaMarca.add(obj);
-
 	}
 
+	/**
+	 * Verifica se tem algum produto com a marca que esta tentando remover e remove
+	 * ele da lista retornando true;
+	 */
 	@Override
-	public void remover(int index) {
+	public boolean remover(int index) {
 		ProdutoDAO produtoDAO = new ProdutoDAO();
-//		Verifica se tem algum produto com a marca que esta tentando remover;
 		if (produtoDAO.verificaMarca(index)) {
-			JOptionPane.showMessageDialog(null, "Essa marca não pode ser removida pois existe Produtos vinculados a ela!!!");
+			return false;
 		} else {
 			listaMarca.remove(index);
+			return true;
 		}
 	}
 
-
+	/**
+	 * Altera uma marca
+	 */
 	@Override
 	public void alterar(Marca obj, int index) {
-		// TODO Auto-generated method stub
-
+		listaMarca.set(index, obj);
 	}
 
+	/**
+	 * Retorna uma Lista de todas a marcas com dados completos da marca
+	 */
 	public String listaMarcaTxt() {
 		String lista = "Lista:\n";
 		for (int i = 0; i < listaMarca.size(); i++) {
@@ -42,14 +51,20 @@ public class MarcaDAO implements ICrud<Marca> {
 		return lista;
 	}
 
+	/**
+	 * Retorna um Objeto Marca que esteja cadastrado da na lista pelo Indice dele na
+	 * lista
+	 */
 	public Marca buscarIndex(int index) {
 		if (index >= 0 && index <= (listaMarca.size() - 1)) {
 			return listaMarca.get(index);
 		}
-
 		return null;
 	}
 
+	/**
+	 * Retorna apenas o nome da Marca atraves do indice dele na lista
+	 */
 	public String buscarNomeIndex(int index) {
 
 		return listaMarca.get(index).getNome();

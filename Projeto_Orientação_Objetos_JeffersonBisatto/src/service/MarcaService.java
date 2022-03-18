@@ -7,8 +7,11 @@ import model.Marca;
 
 public class MarcaService {
 
-	// Esse metodo pede o id para alterar validando o que é digitado retornando um
-	// index da marca ou -1 se ele cancelar a alteração
+	
+	/**
+	 * Esse metodo pede o id para alterar ou remover, validando o que é digitado retornando um
+	 *  index da marca ou -1 se ele cancelar a alteração
+	 */	
 	public int pedirIdMarca(String frase) {
 		int respostas;
 		String validaResposta;

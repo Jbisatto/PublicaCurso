@@ -2,13 +2,19 @@ package view;
 
 import javax.swing.JOptionPane;
 
+import controller.FuncionarioDAO;
+
 public class AdministradoView {
 
+	/**
+	 * Monta a Tela do Administrador
+	 */
 	public void administradorTela(boolean senhaVerificada) {
 		while (senhaVerificada) {
 			try {
 				int acao = Integer.parseInt(JOptionPane.showInputDialog("ADIMINISTRADOR LOGADO\n1-Gerenciar Usuários"
-						+ "\n2-Gerenciar Marcas" + "\n3-Gerenciar Produtos" + "\n4-Realizar Venda" + "\n5-Fazer Logout"));
+						+ "\n2-Gerenciar Marcas" + "\n3-Gerenciar Produtos" + "\n4-Realizar Venda"
+						+ "\n5-Extrato de comissões" + "\n6-Fazer Logout"));
 				switch (acao) {
 				case 1: {
 					FuncionarioView usuarioview = new FuncionarioView();
@@ -31,6 +37,10 @@ public class AdministradoView {
 					break;
 				}
 				case 5: {
+					gerarExtrato();
+					break;
+				}
+				case 6: {
 					senhaVerificada = false;
 					break;
 				}
@@ -45,6 +55,17 @@ public class AdministradoView {
 
 		}
 	}
-	
+
+	/**
+	 * Monta a Tela de Extrato
+	 */
+	public void gerarExtrato() {
+		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+		JOptionPane.showMessageDialog(null,
+				"------------------------------------------------------EXTRATO COMISSÕES"
+						+ "------------------------------------------------------" + "\n"
+						+ funcionarioDAO.listaComissoesVendas());
+
+	}
 
 }

@@ -8,13 +8,21 @@ import service.FuncionarioService;
 
 public class FuncionarioView {
 
+	/**
+	 * Monta a Tela de cadastramento de Usuários
+	 */
 	public void tela(String tipoUsuario) {
 		boolean senhaVerificada = true;
-//		Criar, Alterar e Excluir
+		String verifica;
 		while (senhaVerificada) {
 			try {
-				int acao = Integer.parseInt(JOptionPane.showInputDialog(tipoUsuario + " LOGADO\n1-Cadastrar Usuário"
-						+ "\n2-Alterar Usuário" + "\n3-Remover Usuario" + "\n4-Sair"));
+				verifica=JOptionPane.showInputDialog(tipoUsuario + " LOGADO\n1-Cadastrar Usuário"
+						+ "\n2-Alterar Usuário" + "\n3-Remover Usuario" + "\n4-Sair");
+				if (verifica==null) {
+					break;
+				}
+				int acao = Integer.parseInt(verifica);
+				
 				switch (acao) {
 				case 1: {
 					cadastrarUsuario();
@@ -32,6 +40,7 @@ public class FuncionarioView {
 					senhaVerificada = false;
 					break;
 				}
+				
 
 				default: {
 					JOptionPane.showMessageDialog(null, "Opção invalida!!!");
@@ -46,6 +55,9 @@ public class FuncionarioView {
 
 	}
 
+	/**
+	 * Executa o cadastramento de Usuários
+	 */
 	public void cadastrarUsuario() {
 
 		Funcionario funcionario = new Funcionario();
@@ -63,12 +75,15 @@ public class FuncionarioView {
 		funcionarioDAO.cadastrar(funcionario);
 	}
 
+	/**
+	 * Executa a alteração de Usuários
+	 */
 	public void alterarUsuario() {
 		int index;
 		Funcionario funcionario = new Funcionario();
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		FuncionarioService funcionarioService = new FuncionarioService();
-		index = funcionarioService.pedirId(" alterar ");
+		index = funcionarioService.pedirId(" alterar ",true);
 		if (index != -1) {
 			funcionario = funcionarioDAO.buscarIndex(index);
 			funcionario.setNome(
@@ -90,13 +105,23 @@ public class FuncionarioView {
 		}
 	}
 
+	/**
+	 * Executa a remoção de Usuários
+	 */
 	public void removerUsuario() {
-
+		int index;
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		FuncionarioService funcionarioService = new FuncionarioService();
-		funcionarioDAO.remover(funcionarioService.pedirIdSemAdm(" remover "));
+		index = funcionarioService.pedirId(" remover ", false);
+		if (index != -1) {
+			if(funcionarioDAO.remover(index)) {
+				JOptionPane.showMessageDialog(null,
+						"Funcionario Removido");
+			}else {
+				JOptionPane.showMessageDialog(null,
+						"Esse Funcioanrio não pode ser removida pois existe Vendas vinculados a ele!!!");
+			}
+		}
 	}
-
-
 
 }

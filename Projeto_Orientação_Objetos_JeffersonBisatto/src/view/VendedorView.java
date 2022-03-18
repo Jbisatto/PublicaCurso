@@ -4,6 +4,9 @@ import javax.swing.JOptionPane;
 
 public class VendedorView {
 
+	/**
+	 * Monta a Tela do Vendedor
+	 */
 	public void vendedorTela(boolean senhaVerificada) {
 
 		while (senhaVerificada) {

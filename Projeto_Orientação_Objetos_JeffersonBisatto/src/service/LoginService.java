@@ -10,7 +10,11 @@ import model.Funcionario;
 
 public class LoginService {
 
-	// Controla quantidade de erro
+	/**
+	 * Controla quantidade de erro retorna -3 se o usuario clicou em cancelar.
+	 * Quando é feito o login, e verificado o login e senha, caso esteja errado irá
+	 * contar 3 erro e após isso irá bloquear a aplicação por 3 minutos.
+	 */
 	public int controlarErro(int resposta) {
 		int qtderros = 0;
 
@@ -47,8 +51,10 @@ public class LoginService {
 		return resposta;
 	}
 
-	// Bloqueia a Aplicação pela quantidade de tempo Informada e zera a quatidade de
-	// erros!!!
+	/**
+	 * Bloqueia a aplicação pelo tempo passado em minutos. Esse metodo bloqueia os 3
+	 * minutos do erro e os 10 minutos de erros quando esqueceu a senha
+	 */
 	public int bloqueadoErro(int tempo) {
 		Date dataHoraErro = null, dataHoraAtual = null;
 		String hora = "";
@@ -71,7 +77,11 @@ public class LoginService {
 		return qtderros;
 	}
 
-	// caso esqueceu a senha
+	/**
+	 * Esse método permite o Usuário recuperar a senha, verificando primeiro se o
+	 * login existe, caso o usuário erre por 3 vezes a aplicação será bloqueada por
+	 * 10 minutos
+	 */
 	public int esqueceuSenha() {
 
 		int erroRecuperacao = 0;
@@ -99,7 +109,10 @@ public class LoginService {
 		}
 	}
 
-	// Recupera Login verificando se o Usuario existe
+	/**
+	 * Através do login, ele permite o usuário escolher a forma de recuperação de
+	 * login (Telefone ou email)
+	 */
 	public int recuperacaoLogin(String login) {
 		int teleEmail = -1;
 		int resposta = -1;
@@ -108,10 +121,10 @@ public class LoginService {
 				teleEmail = Integer.parseInt(
 						JOptionPane.showInputDialog("Como deseja recuperar a senha?\n1-Por Telefone\n2-Por E-mail"));
 				if (teleEmail == 1) {
-					resposta = recuperarTelefone(login);
+					resposta = recuperarSenha(login, 'T');
 					break;
 				} else if (teleEmail == 2) {
-					resposta = recuperarEmail(login);
+					resposta = recuperarSenha(login, 'E');
 					break;
 				}
 
@@ -124,34 +137,33 @@ public class LoginService {
 		return resposta;
 	}
 
-	// RECUPERCAO TELEFONE
-	public int recuperarTelefone(String login) {
-		String telefone = "";
+	/**
+	 * Através do login e faz uma recuperação pelo Telefone ou Email do usuario, se
+	 * tivera verficação for falsa irá retora -1 não proceguindo com a alteraçao da
+	 * senha.
+	 */
+	public int recuperarSenha(String login, char tipo) {
+		String telefone = "", email = "";
 		int resposta = -1;
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-		telefone = JOptionPane.showInputDialog("Informe o Telefone:");
-		resposta = funcionarioDAO.buscarTelefone(telefone, login);
+		if (tipo == 'T') {
+			telefone = JOptionPane.showInputDialog("Informe o Telefone:");
+			resposta = funcionarioDAO.buscarTelefone(telefone, login);
+		} else {
+			email = JOptionPane.showInputDialog("Informe o Email:");
+			resposta = funcionarioDAO.buscarEmail(email, login);
+		}
 		if (resposta != -1) {
 			resposta = alterarSenha(resposta);
 		}
 		return resposta;
 	}
 
-	// RECUPERCAO POR EMAIL
-	public int recuperarEmail(String login) {
-		String email = "";
-		int resposta = -1;
-		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-		email = JOptionPane.showInputDialog("Informe o Email:");
-		resposta = funcionarioDAO.buscarEmail(email, login);
-		if (resposta != -1) {
-			resposta = alterarSenha(resposta);
-		}
-		return resposta;
-	}
-
-	// FAZ A PERGUNTA E TROCA A SENHA--Irá retornar -1 se digitou a frase errada e
-	// -2 de alterou a senha
+	/**
+	 * FAZ A PERGUNTA E TROCA A SENHA
+	 * Irá retornar -1 se digitou a frase errada e
+	 * -2 de alterou a senha
+	 */
 	public int alterarSenha(int index) {
 		int resposta = -1;
 		Funcionario funcionario = new Funcionario();

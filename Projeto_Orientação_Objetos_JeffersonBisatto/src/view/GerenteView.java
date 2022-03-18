@@ -4,6 +4,9 @@ import javax.swing.JOptionPane;
 
 public class GerenteView {
 
+	/**
+	 * Monta a Tela do Gerente
+	 */
 	public void gerenteTela(boolean senhaVerificada) {
 		
 		while (senhaVerificada) {
