@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="Modelo.Pessoa"/>
-    <fullyQualifiedTypeName name="modelo.Provas"/>
-    <fullyQualifiedTypeName name="modelo.Notas"/>
-    <fullyQualifiedTypeName name="DAO.ProvasDAO"/>
-    <fullyQualifiedTypeName name="DAO.AlunoDAO"/>
-    <fullyQualifiedTypeName name="modelo.Aluno"/>
-    <fullyQualifiedTypeName name="DAO.NotasDAO"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="calssesDAO.PerguntasDAO"/>
-    <fullyQualifiedTypeName name="java.util.Random"/>
-    <fullyQualifiedTypeName name="modelo.Perguntas"/>
-    <fullyQualifiedTypeName name="calssesDAO.JogadorDAO"/>
-    <fullyQualifiedTypeName name="modelo.Jogador"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="controller.LoginDAO"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="modelo.Login"/>
     <fullyQualifiedTypeName name="java.io.FileWriter"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="modelo.Produto"/>
@@ -31,13 +16,11 @@
     <fullyQualifiedTypeName name="model.IComissao"/>
     <fullyQualifiedTypeName name="javax.xml.crypto.dsig.XMLObject"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="controller.ICrud"/>
     <fullyQualifiedTypeName name="model.Administrador"/>
     <fullyQualifiedTypeName name="view.AdministradoView"/>
     <fullyQualifiedTypeName name="view.GerenteView"/>
     <fullyQualifiedTypeName name="view.LoginView"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.time.Duration"/>
     <fullyQualifiedTypeName name="view.MarcasView"/>
     <fullyQualifiedTypeName name="view.ProdutoView"/>
@@ -55,9 +38,26 @@
     <fullyQualifiedTypeName name="model.Venda"/>
     <fullyQualifiedTypeName name="controller.VendaDAO"/>
     <fullyQualifiedTypeName name="service.FuncionarioService"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="service.PopuladorService"/>
     <fullyQualifiedTypeName name="model.Gerente"/>
     <fullyQualifiedTypeName name="model.Vendedor"/>
     <fullyQualifiedTypeName name="java.text.NumberFormat"/>
+    <fullyQualifiedTypeName name="javax.swing.ButtonGroup"/>
+    <fullyQualifiedTypeName name="exercicio02_ConversorMoedas.ConversorMoedas"/>
+    <fullyQualifiedTypeName name="exercicio03_imc.CalcularIMC"/>
+    <fullyQualifiedTypeName name="exercicio04_Crud.ProdutoAcao"/>
+    <fullyQualifiedTypeName name="exercicio04_Crud.BdProdutos"/>
+    <fullyQualifiedTypeName name="exercicio04_Crud.ProdutoModelo"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="modelo.Prova"/>
+    <fullyQualifiedTypeName name="modelo.Chamada"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="acoes.ICrud"/>
+    <fullyQualifiedTypeName name="modelo.Login"/>
+    <fullyQualifiedTypeName name="acoes.LoginAcoes"/>
+    <fullyQualifiedTypeName name="modelo.Aluno"/>
+    <fullyQualifiedTypeName name="bd.Bd"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="formulario.FormProfessor"/>
 </qualifiedTypeNameHistroy>
