@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="controller.LoginDAO"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.io.FileWriter"/>
-    <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="modelo.Produto"/>
-    <fullyQualifiedTypeName name="view.Principal"/>
-    <fullyQualifiedTypeName name="exercicio08.Pessoa"/>
-    <fullyQualifiedTypeName name="exercicío10.Padrão"/>
-    <fullyQualifiedTypeName name="exercicio11.Padrao1"/>
-    <fullyQualifiedTypeName name="exercicio11.Padrao2"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="exemplo12.Desenvolvedor"/>
     <fullyQualifiedTypeName name="model.Usuario"/>
     <fullyQualifiedTypeName name="model.IComissao"/>
     <fullyQualifiedTypeName name="javax.xml.crypto.dsig.XMLObject"/>
-    <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="controller.ICrud"/>
     <fullyQualifiedTypeName name="model.Administrador"/>
     <fullyQualifiedTypeName name="view.AdministradoView"/>
@@ -48,16 +37,27 @@
     <fullyQualifiedTypeName name="exercicio04_Crud.ProdutoAcao"/>
     <fullyQualifiedTypeName name="exercicio04_Crud.BdProdutos"/>
     <fullyQualifiedTypeName name="exercicio04_Crud.ProdutoModelo"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="modelo.Prova"/>
-    <fullyQualifiedTypeName name="modelo.Chamada"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="acoes.ICrud"/>
     <fullyQualifiedTypeName name="modelo.Login"/>
     <fullyQualifiedTypeName name="acoes.LoginAcoes"/>
+    <fullyQualifiedTypeName name="acoes.ValidacaoCampo"/>
     <fullyQualifiedTypeName name="modelo.Aluno"/>
-    <fullyQualifiedTypeName name="bd.Bd"/>
+    <fullyQualifiedTypeName name="formulario.CadastroAluno"/>
+    <fullyQualifiedTypeName name="acoes.NotaAcao"/>
+    <fullyQualifiedTypeName name="acoes.ProvaAcao"/>
+    <fullyQualifiedTypeName name="formulario.FormChamadas"/>
+    <fullyQualifiedTypeName name="acoes.ProfessorAcao"/>
+    <fullyQualifiedTypeName name="acoes.AlunoAcoes"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="modelo.Chamada"/>
+    <fullyQualifiedTypeName name="acoes.ChamadaAcao"/>
+    <fullyQualifiedTypeName name="acoes.ICrud"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="formulario.FormProfessor"/>
+    <fullyQualifiedTypeName name="acoes.DataCadastradaAcao"/>
+    <fullyQualifiedTypeName name="bd.Bd"/>
 </qualifiedTypeNameHistroy>

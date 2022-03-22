@@ -13,11 +13,7 @@ public class LoginAcoes implements ICrud<Login> {
 		
 	}
 
-	@Override
-	public List<Login> lista() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public void alterar(Login obj, int index) {
@@ -49,6 +45,14 @@ public class LoginAcoes implements ICrud<Login> {
 			}
 		}
 		return 'N';
+	}
+
+
+
+	@Override
+	public List<Login> lista() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
