@@ -41,6 +41,7 @@ public class FormPrincipal extends JFrame {
 	private JLabel lblImpostosRenda;
 	private JLabel lblValorTotal;
 	private JLabel lblQtdDiasTotal;
+	private CalculoDias calculoDias = new CalculoDias();
 
 	/**
 	 * Launch the application.
@@ -96,14 +97,16 @@ public class FormPrincipal extends JFrame {
 							CalculaInvestimento.calcularLCI(Double.parseDouble(txtValor.getText()), buscaTempoCombo()),
 							CalculaInvestimento.calcularCDB(Double.parseDouble(txtValor.getText()),
 									buscaTempoCombo())));
-					CalculoDias.adicionarDiasUteis(buscaTempoCombo());
 					qtdTotalDias();
 					qtdDiasUteis();
 					valorInicial(Double.parseDouble(txtValor.getText()));
-					valorTotalRendimentos(Double.parseDouble(txtValor.getText()),buscaTempoCombo());
+					valorTotalRendimentos(Double.parseDouble(txtValor.getText()), buscaTempoCombo());
+					valorRedendimentos(Double.parseDouble(txtValor.getText()), buscaTempoCombo());
+					imposto();
 				} else {
 					painel.setVisible(false);
 					txtValor.setText("");
+					limparValoresEstatistica();
 					;
 				}
 			}
@@ -127,15 +130,15 @@ public class FormPrincipal extends JFrame {
 		contentPane.add(cbxTempo);
 
 		lblQtdDiasTotal = new JLabel("Quantidade de dias corridos da aplica\u00E7\u00E3o:");
-		lblQtdDiasTotal.setBounds(26, 68, 355, 25);
+		lblQtdDiasTotal.setBounds(26, 68, 604, 25);
 		contentPane.add(lblQtdDiasTotal);
 
 		lblQtdDiasUteis = new JLabel("Quantidade de dias que houve rendimento:");
-		lblQtdDiasUteis.setBounds(26, 88, 355, 25);
+		lblQtdDiasUteis.setBounds(26, 88, 604, 25);
 		contentPane.add(lblQtdDiasUteis);
 
 		lblValorInicial = new JLabel("Valor inicial da aplica\u00E7\u00E3o:");
-		lblValorInicial.setBounds(26, 106, 365, 27);
+		lblValorInicial.setBounds(26, 106, 604, 27);
 		contentPane.add(lblValorInicial);
 
 		lblValorRedendimesntos = new JLabel("Valor recebido dos rendimentos:");
@@ -143,7 +146,7 @@ public class FormPrincipal extends JFrame {
 		contentPane.add(lblValorRedendimesntos);
 
 		lblImpostosRenda = new JLabel("Imposto de renda cobrado:");
-		lblImpostosRenda.setBounds(26, 144, 355, 25);
+		lblImpostosRenda.setBounds(26, 144, 604, 25);
 		contentPane.add(lblImpostosRenda);
 
 		lblValorTotal = new JLabel("Valor inicial + rendimentos");
@@ -167,33 +170,73 @@ public class FormPrincipal extends JFrame {
 	public int buscaTempoCombo() {
 		int mes;
 		switch (cbxTempo.getSelectedIndex()) {
-		case 1 -> mes = 3;
-		case 2 -> mes = 6;
-		case 3 -> mes = 9;
-		case 4 -> mes = 12;
-		case 5 -> mes = 18;
-		default -> throw new IllegalArgumentException("Unexpected value: " + cbxTempo.getSelectedIndex());
+		case 1: {
+			mes = 3;
+		}
+			break;
+		case 2: {
+			mes = 6;
+		}
+			break;
+		case 3: {
+			mes = 9;
+		}
+			break;
+		case 4: {
+			mes = 12;
+		}
+			break;
+		case 5: {
+			mes = 18;
+		}
+			break;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + cbxTempo.getSelectedIndex());
 		}
 		return mes;
 	}
 
 	public void qtdTotalDias() {
-		lblQtdDiasTotal.setText("Quantidade de dias corridos da aplicação: " + CalculoDias.qtdTotal);
+		lblQtdDiasTotal.setText("Quantidade de dias corridos da aplicação: " + calculoDias.diasTotalUteis(buscaTempoCombo(), 'T'));
 	}
-	
+
 	public void qtdDiasUteis() {
-		lblQtdDiasUteis.setText("Quantidade de dias que houve rendimento: " + CalculoDias.qtdDiaUteis);
+		lblQtdDiasUteis.setText("Quantidade de dias que houve rendimento: " + calculoDias.diasTotalUteis(buscaTempoCombo(), 'U'));
+	}
+
+	public void valorInicial(double valor) {
+		lblValorInicial.setText("Valor inicial da aplicação: " + z.format(valor));
 	}
 	
-	public void valorInicial(double valor) {
-		lblValorInicial.setText("Valor inicial da aplicação:" + z.format(valor));
+	public void imposto() {
+		lblImpostosRenda.setText("Imposto de renda cobrado: Poupança: Isento"
+				+ ", CBD: "+z.format(CalculaInvestimento.impostoRetido)
+				+", LCI: Isento");
 	}
-	public void valorTotalRendimentos(double valor, int tempo) {
-		double poupanca=CalculaInvestimento.calcularPoupanca(valor, tempo);
-		double cbd=CalculaInvestimento.calcularCDB(valor, tempo);
-		double lci=CalculaInvestimento.calcularLCI(valor, tempo);		
-		lblValorTotal.setText("Valor recebido dos rendimentos: Poupança: " + z.format(poupanca)+
+
+	public void valorRedendimentos(double valor, int tempo) {
+		double poupanca = CalculaInvestimento.calcularPoupanca(valor, tempo)-valor;
+		double cbd = CalculaInvestimento.calcularCDB(valor, tempo)-valor;
+		double lci = CalculaInvestimento.calcularLCI(valor, tempo)-valor;
+		lblValorRedendimesntos.setText("Valor recebido dos rendimentos: Poupança: " + z.format(poupanca)+
 				", CBD: "+z.format(cbd)+
 				", LCI: "+z.format(lci));
+	}
+
+	public void valorTotalRendimentos(double valor, int tempo) {
+		double poupanca = CalculaInvestimento.calcularPoupanca(valor, tempo);
+		double cbd = CalculaInvestimento.calcularCDB(valor, tempo);
+		double lci = CalculaInvestimento.calcularLCI(valor, tempo);
+		lblValorTotal.setText("Valor recebido dos rendimentos: Poupança: " + z.format(poupanca) + ", CBD: "
+				+ z.format(cbd) + ", LCI: " + z.format(lci));
+	}
+	
+	public void limparValoresEstatistica() {
+		lblValorTotal.setText("Valor recebido dos rendimentos:");
+		lblValorRedendimesntos.setText("Valor recebido dos rendimentos:");
+		lblImpostosRenda.setText("Imposto de renda cobrado:");
+		lblValorInicial.setText("Valor inicial da aplicação:");
+		lblQtdDiasUteis.setText("Quantidade de dias que houve rendimento:");
+		lblQtdDiasTotal.setText("Quantidade de dias corridos da aplicação:");
 	}
 }

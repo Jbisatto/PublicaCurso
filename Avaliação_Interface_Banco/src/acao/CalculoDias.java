@@ -8,26 +8,45 @@ import java.util.List;
 
 public class CalculoDias {
 
-	public static int qtdTotal = 0, qtdDiaUteis = 0;
-	public static double redimentoPoupanca=0,redimentoLCI=0,redimentoCDB=0;
+	public double redimentoPoupanca = 0, redimentoLCI = 0, redimentoCDB = 0;
 
-	public static void adicionarDiasUteis(int mes) {
+	/**
+	 * Retorna a quantidade de dias uteis ou total de dia referente ao mes
+	 * informado, se o tipo for T iria retornar o total
+	 * 
+	 * @param mes
+	 * @param tipo
+	 * @return
+	 */
+
+	public int diasTotalUteis(int mes, char tipo) {
+		int qtdTotal = 0, qtdDiaUteis = 0;
 		Calendar dataInicial = Calendar.getInstance();
 		Calendar dataFinal = Calendar.getInstance();
+		dataFinal.setTime(dataInicial.getTime());
 		dataFinal.add(Calendar.MONTH, mes);
-		qtdTotal = 0;
-		qtdDiaUteis = 0;
-//		dataInicial.add(Calendar.DATE, 1);
-		while (dataInicial.before(dataFinal)) {
 
+		while (dataInicial.before(dataFinal)) {
 			if (verificaFimSemana(dataInicial))
 				qtdDiaUteis++;
 			qtdTotal++;
 			dataInicial.add(Calendar.DATE, 1);
 		}
+		if (tipo == 'T') {
+			return qtdTotal;
+		} else {
+			return qtdDiaUteis;
+		}
+
 	}
 
-	public static boolean verificaFimSemana(Calendar dataInicial) {
+	/**
+	 * verifica se o dia é um fim de semana
+	 * 
+	 * @param dataInicial
+	 * @return
+	 */
+	public boolean verificaFimSemana(Calendar dataInicial) {
 		if (dataInicial.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY
 				&& dataInicial.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
 			if (verificaFeriado(dataInicial)) {
@@ -37,7 +56,13 @@ public class CalculoDias {
 		return false;
 	}
 
-	public static boolean verificaFeriado(Calendar dataInicial) {
+	
+	/**
+	 * Verifica se o dia é um feriado
+	 * @param dataInicial
+	 * @return
+	 */
+	public boolean verificaFeriado(Calendar dataInicial) {
 		for (Calendar data : listaFeriado()) {
 			if (data.get(Calendar.DATE) == dataInicial.get(Calendar.DATE)
 					&& data.get(Calendar.MONTH) == dataInicial.get(Calendar.MONTH)) {
@@ -48,7 +73,7 @@ public class CalculoDias {
 		return true;
 	}
 
-	public static List<Calendar> listaFeriado() {
+	public List<Calendar> listaFeriado() {
 		List<Calendar> feriados = new ArrayList<>();
 		feriados.add(new GregorianCalendar(0, 0, 1));
 		feriados.add(new GregorianCalendar(0, 1, 20));
