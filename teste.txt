@@ -1,1 +1,3 @@
 http://dontpad.com/ralflima
+
+https://www.thiengo.com.br/padrao-de-projeto-singleton
