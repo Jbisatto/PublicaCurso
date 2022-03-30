@@ -29,6 +29,11 @@ public class Tipo {
 	public void setNomeTipo(String nomeTipo) {
 		this.nomeTipo = nomeTipo;
 	}
+
+	@Override
+	public String toString() {
+		return nomeTipo;
+	}
 	
 	
 	
