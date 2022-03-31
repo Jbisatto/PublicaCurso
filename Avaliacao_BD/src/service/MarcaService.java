@@ -5,14 +5,11 @@ import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 import dao.MarcaDao;
-import dao.ProdutoDao;
-import dao.TipoDao;
 
 public class MarcaService {
 
 	public static DefaultTableModel listarProdutoMarca(String text) throws SQLException {
 		MarcaDao marcaDao = new MarcaDao();
-		String marca, tipo;
 		DefaultTableModel dtm = new DefaultTableModel();
 		dtm.addColumn("Código");
 		dtm.addColumn("Produto");
@@ -29,7 +26,6 @@ public class MarcaService {
 	
 	public static DefaultTableModel listarMarca() throws SQLException {
 		MarcaDao marcaDao = new MarcaDao();
-		String marca, tipo;
 		DefaultTableModel dtm = new DefaultTableModel();
 		dtm.addColumn("Código");
 		dtm.addColumn("Marca");

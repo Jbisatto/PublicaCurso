@@ -12,8 +12,6 @@ import javax.swing.JOptionPane;
 
 import bd.Conexao;
 import dto.ProdutoDto;
-import model.Marca;
-import model.Produto;
 import model.Tipo;
 
 public class TipoDao implements ICrud<Tipo> {
@@ -126,7 +124,9 @@ public class TipoDao implements ICrud<Tipo> {
 	}
 
 
-
+	/*
+	 * Retorna uma lista de Produto filtrando por Tipo
+	 */
 	public List<ProdutoDto> filtrarFiltros(String pesquisar) throws SQLException {
 		List<ProdutoDto> listaProdutos = new ArrayList<>();
 		Connection obj = Conexao.getInstance().conectar();

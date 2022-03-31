@@ -4,13 +4,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.ProdutoDto;
 import model.Produto;
 import model.ProdutosCarrinho;
+import validador.Formatador;
 
 public class Carrinho {
+	
 	public static List<ProdutosCarrinho> carrinho = new ArrayList<>();
 	
+	/*
+	 * Adiciona produtos no carrinho e a quantidade do produto
+	 */
 	public static void addCarrinho(Produto produto) {
 		ProdutosCarrinho produtoCarrinho = new ProdutosCarrinho();
 		boolean contem=false;
@@ -27,6 +31,9 @@ public class Carrinho {
 		}
 	}
 
+	/*
+	 * Retorna a Lista de produtos no carrinho
+	 */
 	public static String lista() throws SQLException {
 		double valorTotal=0;
 		String lista = "Carrinho: \n";
@@ -35,14 +42,17 @@ public class Carrinho {
 		for (int i = 0; i < carrinho.size(); i++) {
 			produto=produtoDao.buscaId(carrinho.get(i).getId_produto());
 			lista+=produto.getNome()+"  --  Qtd: "+carrinho.get(i).getQtd_Produto()+
-					"  --  Valor: "+(produto.getValor() * carrinho.get(i).getQtd_Produto())+"\n";
+					"  --  Valor: "+Formatador.z.format((produto.getValor() * carrinho.get(i).getQtd_Produto()))+"\n";
 			valorTotal+=(produto.getValor() * carrinho.get(i).getQtd_Produto());
 		
 		}
-		lista+="\n\nTotal: "+valorTotal;
+		lista+="\n\nTotal: "+Formatador.z.format(valorTotal);
 		return lista;
 	}
 
+	/*
+	 * Limpa o carrinho
+	 */
 	public static void limparLista() {
 		carrinho.clear();
 		

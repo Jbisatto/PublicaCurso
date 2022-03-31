@@ -4,7 +4,6 @@ import java.sql.SQLException;
 
 import javax.swing.table.DefaultTableModel;
 
-import dao.MarcaDao;
 import dao.TipoDao;
 
 public class TipoService {

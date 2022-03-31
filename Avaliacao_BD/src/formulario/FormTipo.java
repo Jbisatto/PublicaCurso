@@ -1,15 +1,11 @@
 package formulario;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import dao.MarcaDao;
 import dao.TipoDao;
-import model.Marca;
 import model.Tipo;
 import service.MarcaService;
 import service.TipoService;
@@ -23,13 +19,15 @@ import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class FormTipo extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtTipo;
 	private JTable table;

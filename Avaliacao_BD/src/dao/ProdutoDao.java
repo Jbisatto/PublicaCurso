@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 
 import bd.Conexao;
 import dto.ProdutoDto;
-import model.Marca;
 import model.Produto;
 
 public class ProdutoDao implements ICrud<Produto> {
@@ -39,39 +38,7 @@ public class ProdutoDao implements ICrud<Produto> {
 		}
 	}
 
-
-	public List<ProdutoDto> lista(String pesquisar) throws SQLException {
-		List<ProdutoDto> listaProdutos = new ArrayList<>();
-		Connection obj = Conexao.getInstance().conectar();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			String sql = "Select" + "	produtos.codigo," + "    produtos.nome," + "    produtos.valor,"
-					+ "    marcas.nome," + "    tipos.nome " + "from produtos " + "inner join marcas "
-					+ "on  produtos.marca = marcas.codigo " + "inner join tipos " + "on  produtos.tipo = tipos.codigo "
-					+ "where produtos.nome like ? " + "order by produtos.codigo ;";
-			pstmt = obj.prepareStatement(sql);
-			pstmt.setString(1, "%" + pesquisar + "%");
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				ProdutoDto produtoDto = new ProdutoDto();
-				produtoDto.setCodigoProduto(rs.getInt(1));
-				produtoDto.setNome(rs.getString(2));
-				produtoDto.setValor(rs.getDouble(3));
-				produtoDto.setMarca(rs.getString(4));
-				produtoDto.setTipo(rs.getString(5));
-				listaProdutos.add(produtoDto);
-			}
-		} catch (Exception e) {
-			System.out.println("Falha " + e.getMessage());
-		} finally {
-			rs.close();
-			pstmt.close();
-			obj.close();
-		}
-		return listaProdutos;
-	}
-
+	
 	@Override
 	public void alterar(Produto obj, int index) throws SQLException {
 		Connection con = Conexao.getInstance().conectar();
@@ -166,6 +133,41 @@ public class ProdutoDao implements ICrud<Produto> {
 			obj.close();
 		}
 		return listaProduto;
+	}
+
+	/*
+	 * Retorna uma lista de Produto filtrando por produtos
+	 */
+	public List<ProdutoDto> lista(String pesquisar) throws SQLException {
+		List<ProdutoDto> listaProdutos = new ArrayList<>();
+		Connection obj = Conexao.getInstance().conectar();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "Select" + "	produtos.codigo," + "    produtos.nome," + "    produtos.valor,"
+					+ "    marcas.nome," + "    tipos.nome " + "from produtos " + "inner join marcas "
+					+ "on  produtos.marca = marcas.codigo " + "inner join tipos " + "on  produtos.tipo = tipos.codigo "
+					+ "where produtos.nome like ? " + "order by produtos.codigo ;";
+			pstmt = obj.prepareStatement(sql);
+			pstmt.setString(1, "%" + pesquisar + "%");
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ProdutoDto produtoDto = new ProdutoDto();
+				produtoDto.setCodigoProduto(rs.getInt(1));
+				produtoDto.setNome(rs.getString(2));
+				produtoDto.setValor(rs.getDouble(3));
+				produtoDto.setMarca(rs.getString(4));
+				produtoDto.setTipo(rs.getString(5));
+				listaProdutos.add(produtoDto);
+			}
+		} catch (Exception e) {
+			System.out.println("Falha " + e.getMessage());
+		} finally {
+			rs.close();
+			pstmt.close();
+			obj.close();
+		}
+		return listaProdutos;
 	}
 
 }

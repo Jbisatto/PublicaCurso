@@ -1,6 +1,5 @@
 package formulario;
 
-import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,13 +10,16 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.sql.SQLException;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class FormLogin extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtLogin;
 	private JTextField txtSenha;
@@ -37,6 +39,21 @@ public class FormLogin extends JFrame {
 		contentPane.setLayout(null);
 
 		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()==KeyEvent.VK_ENTER) {
+					if(txtLogin.getText().equals(login)&&txtSenha.getText().equals(senha)) {
+						FormAdministardor frame = new FormAdministardor();
+						frame.setTitle("Administrador");
+						frame.setVisible(true);
+						dispose();
+					}else {
+						JOptionPane.showMessageDialog(null,"Login Incorreto");
+					}
+				}
+			}
+		});
 		btnEntrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -60,6 +77,14 @@ public class FormLogin extends JFrame {
 		contentPane.add(lblLogin);
 
 		txtLogin = new JTextField();
+		txtLogin.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()== KeyEvent.VK_ENTER) {
+					btnEntrar.requestFocus();
+				}
+			}
+		});
 		txtLogin.setBounds(120, 11, 86, 20);
 		contentPane.add(txtLogin);
 		txtLogin.setColumns(10);
@@ -69,6 +94,14 @@ public class FormLogin extends JFrame {
 		contentPane.add(lblSenha);
 
 		txtSenha = new JTextField();
+		txtSenha.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()== KeyEvent.VK_ENTER) {
+					btnEntrar.requestFocus();
+				}
+			}
+		});
 		txtSenha.setBounds(120, 46, 86, 20);
 		contentPane.add(txtSenha);
 		txtSenha.setColumns(10);

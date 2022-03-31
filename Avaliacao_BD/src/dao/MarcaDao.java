@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import bd.Conexao;
 import dto.ProdutoDto;
 import model.Marca;
-import model.Produto;
 
 public class MarcaDao implements ICrud<Marca> {
 
@@ -126,6 +125,9 @@ public class MarcaDao implements ICrud<Marca> {
 		return marca;
 	}
 
+	/*
+	 * Retorna uma lista de Produto por filtro de Marcas
+	 */
 	public List<ProdutoDto> filtrarMarcas(String pesquisar) throws SQLException {
 		List<ProdutoDto> listaProdutos = new ArrayList<>();
 		Connection obj = Conexao.getInstance().conectar();

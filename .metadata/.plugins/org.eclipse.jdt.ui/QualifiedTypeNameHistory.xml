@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="formulario.Grafico"/>
-    <fullyQualifiedTypeName name="javax.swing.text.DefaultCaret"/>
-    <fullyQualifiedTypeName name="org.jfree.data.category.DefaultCategoryDataset"/>
-    <fullyQualifiedTypeName name="org.jfree.chart.JFreeChart"/>
-    <fullyQualifiedTypeName name="org.jfree.chart.ChartFactory"/>
-    <fullyQualifiedTypeName name="org.jfree.chart.plot.PlotOrientation"/>
-    <fullyQualifiedTypeName name="org.jfree.chart.ChartPanel"/>
-    <fullyQualifiedTypeName name="acao.CalculaAcao"/>
-    <fullyQualifiedTypeName name="java.text.NumberFormat"/>
-    <fullyQualifiedTypeName name="org.jfree.data.general.DefaultPieDataset"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
-    <fullyQualifiedTypeName name="java.util.Calendar"/>
-    <fullyQualifiedTypeName name="acao.CalculoDias"/>
-    <fullyQualifiedTypeName name="acao.CalculaInvestimento"/>
     <fullyQualifiedTypeName name="Prototype.Pessoa"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -47,7 +32,6 @@
     <fullyQualifiedTypeName name="dao.TipoDao"/>
     <fullyQualifiedTypeName name="model.Marca"/>
     <fullyQualifiedTypeName name="java.lang.Double"/>
-    <fullyQualifiedTypeName name="validador.Validador"/>
     <fullyQualifiedTypeName name="service.ProdutoService"/>
     <fullyQualifiedTypeName name="formulario.FormPrincipal"/>
     <fullyQualifiedTypeName name="formulario.FormProdutos"/>
@@ -55,9 +39,25 @@
     <fullyQualifiedTypeName name="model.Produto"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="dao.Carrinho"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="model.ProdutosCarrinho"/>
     <fullyQualifiedTypeName name="dao.ProdutoDao"/>
     <fullyQualifiedTypeName name="dto.ProdutoDto"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="validador.Formatador"/>
+    <fullyQualifiedTypeName name="javax.swing.table.DefaultTableCellRenderer"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
+    <fullyQualifiedTypeName name="javax.persistence.Persistence"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
+    <fullyQualifiedTypeName name="javax.persistence.Query"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="entidade.Pessoa"/>
+    <fullyQualifiedTypeName name="acoes.AcoesPessoa"/>
+    <fullyQualifiedTypeName name="acoes.AlunoAcoes"/>
+    <fullyQualifiedTypeName name="modelo.Aluno"/>
+    <fullyQualifiedTypeName name="validador.Validador"/>
 </qualifiedTypeNameHistroy>

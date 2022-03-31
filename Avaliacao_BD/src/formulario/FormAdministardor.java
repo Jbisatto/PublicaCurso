@@ -1,7 +1,5 @@
 package formulario;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,6 +15,10 @@ import java.sql.SQLException;
 
 public class FormAdministardor extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 
@@ -35,7 +37,6 @@ public class FormAdministardor extends JFrame {
 					frame.setVisible(true);
 					dispose();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}

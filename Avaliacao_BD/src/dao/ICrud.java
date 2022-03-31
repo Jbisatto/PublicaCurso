@@ -3,8 +3,6 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import dto.ProdutoDto;
-import model.Produto;
 
 public interface ICrud <t> {
 	

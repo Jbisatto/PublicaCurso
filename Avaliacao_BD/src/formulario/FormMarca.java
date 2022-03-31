@@ -1,7 +1,5 @@
 package formulario;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,13 +18,15 @@ import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class FormMarca extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtMarca;
 	private JTable table;
@@ -48,8 +48,8 @@ public class FormMarca extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNomeProva = new JLabel("Informe a Marca");
-		lblNomeProva.setBounds(10, 10, 96, 29);
+		JLabel lblNomeProva = new JLabel("Marca");
+		lblNomeProva.setBounds(50, 11, 43, 29);
 		contentPane.add(lblNomeProva);
 
 		txtMarca = new JTextField();

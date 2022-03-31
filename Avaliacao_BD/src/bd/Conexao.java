@@ -33,6 +33,9 @@ public class Conexao {
 		return obj;
 	}
 
+	/*
+	 * Popula a tabela Marcas no banco de dados
+	 */
 	public void populadorMarcas() throws SQLException {
 		Connection obj = conexao.conectar();
 		PreparedStatement pstmt = null;
@@ -56,6 +59,9 @@ public class Conexao {
 
 	}
 
+	/*
+	 * Popula a tabela Tipos no banco de dados
+	 */
 	public void populadorTipos() throws SQLException {
 		Connection obj = conexao.conectar();
 		PreparedStatement pstmt = null;
@@ -79,6 +85,10 @@ public class Conexao {
 
 	}
 
+	
+	/*
+	 * Popula a tabela Produtos no banco de dados
+	 */
 	public void populadorProdutos() throws SQLException {
 		Connection obj = conexao.conectar();
 		PreparedStatement pstmt = null;
@@ -127,6 +137,10 @@ public class Conexao {
 
 	}
 	
+	
+	/*
+	 * Verifica se tem algum dado no banco para nao repetir o populador
+	 */
 	public boolean verificaDados() throws SQLException {
 		Connection obj = conexao.conectar();
 		Statement stmt = null;
