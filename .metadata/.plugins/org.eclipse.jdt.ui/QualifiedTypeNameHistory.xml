@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="Prototype.Pessoa"/>
-    <fullyQualifiedTypeName name="java.util.Random"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.lang.Cloneable"/>
     <fullyQualifiedTypeName name="Prototype.Documento"/>
     <fullyQualifiedTypeName name="Prototype.RegistroDocumento"/>
@@ -42,7 +38,6 @@
     <fullyQualifiedTypeName name="model.ProdutosCarrinho"/>
     <fullyQualifiedTypeName name="dao.ProdutoDao"/>
     <fullyQualifiedTypeName name="dto.ProdutoDto"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="validador.Formatador"/>
     <fullyQualifiedTypeName name="javax.swing.table.DefaultTableCellRenderer"/>
     <fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
@@ -57,7 +52,12 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="entidade.Pessoa"/>
     <fullyQualifiedTypeName name="acoes.AcoesPessoa"/>
-    <fullyQualifiedTypeName name="acoes.AlunoAcoes"/>
     <fullyQualifiedTypeName name="modelo.Aluno"/>
     <fullyQualifiedTypeName name="validador.Validador"/>
+    <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+    <fullyQualifiedTypeName name="validador.Arrendondador"/>
+    <fullyQualifiedTypeName name="acoes.AlunoAcoes"/>
+    <fullyQualifiedTypeName name="service.AlunoService"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="org.hibernate.engine.internal.AbstractEntityEntry"/>
 </qualifiedTypeNameHistroy>

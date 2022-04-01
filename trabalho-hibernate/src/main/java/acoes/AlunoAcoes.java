@@ -1,13 +1,17 @@
 package acoes;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.swing.table.DefaultTableModel;
 
 import modelo.Aluno;
+import validador.Arrendondador;
 
 
 public class AlunoAcoes {
@@ -33,13 +37,9 @@ public class AlunoAcoes {
 
 		EntityManager em = emf.createEntityManager();
 
-		Query query = em.createQuery("SELECT p FROM Pessoa AS p", Aluno.class);
+		Query query = em.createQuery("SELECT p FROM Aluno AS p", Aluno.class);
 
 		List<Aluno> listaDeAluno = query.getResultList();
-
-		for (Aluno a : listaDeAluno) {
-			System.out.println(a.getCodigo() + " - " + a.getNomeAluno());
-		}
 
 		emf.close();
 		em.close();
@@ -96,7 +96,5 @@ public class AlunoAcoes {
 		emf.close();
 		em.close();
 	}
-
 	
-
 }
