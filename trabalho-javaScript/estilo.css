@@ -1,0 +1,18 @@
+form{
+    width: 200px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+form input{
+    margin-bottom: 10px;
+}
+#administrador{
+    display: none;
+}
+#gerente{
+    display: none;
+}
+#vendedor{
+    display: none;
+}
