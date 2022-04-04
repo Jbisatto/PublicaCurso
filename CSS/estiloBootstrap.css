@@ -1,0 +1,25 @@
+@media screen and (min-width:992px) {
+    .conteudo{
+        font-size: 32px;
+        text-align: center;
+        background-color: rgb(84, 192, 51);
+    }
+    
+}
+@media screen and (min-width:768px) and ( max-width:991px) {
+    .conteudo{
+        font-size: 32px;
+        text-align: center;
+        background-color: coral;
+    }
+    
+}
+@media screen and (max-width:767px) {
+    .conteudo{
+        font-size: 32px;
+        text-align: center;
+        background-color: rgb(74, 14, 185);
+    }
+}
+
+

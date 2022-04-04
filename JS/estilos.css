@@ -1,0 +1,15 @@
+form{
+    width: 500px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+form input{
+    margin-bottom: 10px;
+}
+
+#btnAlterar,
+#btnRemover,
+#btnCancelar{
+    display: none;
+}

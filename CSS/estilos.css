@@ -1,0 +1,27 @@
+body{
+    background-color: blueviolet;
+}
+
+header{
+    background-color: crimson;
+}
+
+main{
+    background-color: darkgoldenrod;
+    overflow: auto;
+}
+nav{
+    background-color: dimgrey;
+    width: 20%;
+    float:left
+}
+div{
+    background-color: yellow;
+    width: 70%;
+    float: right;
+
+}
+
+footer{
+    background-color: coral;
+}

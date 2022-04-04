@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function mensagem(){
+            alert("Olá")
+        }
+        function teclado(campo){
+            document.getElementById("texto").innerText = campo
+        }
+        function cidade(termo){
+            switch(parseInt(termo)){
+                case 1:alert("Cidade onde ocorre a Ockotoberfest")
+                break
+                case 2:alert("Cidade onde ocorre a Fenarreco")
+                break
+                case 3:alert("Maior cidade do Estado")
+                break
+            }
+
+            document.getElementById("texto").innerText = campo
+        }
+    </script>
+</head>
+<body>
+    <button onclick="mensagem()">Clique aqui</button>
+    <hr>
+
+    <h1 id="texto"></h1>
+    <input type="text" onkeyup="teclado(this.value)">   
+    
+    <hr>
+
+    <select onchange="cidade(this.value)">
+        <option value="0">Selecione uma Cidade</option>
+        <option value="1">Blumenau</option>
+        <option value="2">Brusque</option>
+        <option value="3">Joinville</option>
+    </select>
+</body>
+</html>
