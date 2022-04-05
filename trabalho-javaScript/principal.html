@@ -1,39 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vendas</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
-    <script src="acao.js"></script>
+    <script src="acaoUsuario.js"></script>
+    <script src="acaoMarcaProduto.js"></script>
 </head>
+
 <body>
-    <div id="login">
-        <form >
-             <input type="text" id="usuario" placeholder="Login" class="form-control">
-             <input type="password" id="senha" placeholder="Senha" class="form-control">
-             <input type="button" id="btnLogin" value="Entrar" class="btn btn-primary" onclick="entrar()">
-        </form>
+
+    <div class="container" id="login">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form class="box">
+                        <h1>Login</h1>
+                        <p class="text-muted"> Insira o login e Senha</p>
+                        <input type="text" id="usuario" value="" placeholder="Login">
+                        <input type="password" id="senha" value="" placeholder="Senha">
+                        <input type="button" name="" value="Login" onclick="entrar()">
+                        <div class="col-md-12">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="administrador">
-        <form >
-            Tela Administrador
-        </form>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="linksEsquerda">
+                <div class="container-md">
+                    <a class="navbar-brand">ADMINISTRADOR</a>
+                </div>
+                <div class="container-md">
+                    <a class="navbar-brand" href="#">Vendas</a>
+                </div>
+                <div class="container-md">
+                    <a class="navbar-brand" href="#"onclick="telaProdutos()">Produtos</a>
+                </div>
+                <div class="container-md">
+                    <a class="navbar-brand" href="#" onclick="telaMarcas()">Marcas</a>
+                </div>
+                <div class="container-md">
+                    <a class="navbar-brand" href="#" onclick="telaUsuario()">Usuários</a>
+                </div>
+                <div class="container-md">
+                    <a class="navbar-brand" href="#">Estatísticas</a>
+                </div>
+            </div>
+            <div class="linksDireita">
+                <div class="container-md">
+                    <a class="navbar-brand" onclick="telaLogin()" href="#">Logout</a>
+                </div>
+            </div>
+        </nav>
     </div>
     <div id="gerente">
-        <form >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="linksEsquerda">
+                <div class="container-md">
+                    <a class="navbar-brand">GERENTE</a>
+                </div>
+                <div class="container-md">
+                    <a class="navbar-brand" href="#">Vendas</a>
+                </div>
+                <div class="container-md">
+                    <a class="navbar-brand" href="#">Produtos</a>
+                </div>
+                <div class="container-md">
+                    <a class="navbar-brand" href="#">Vendedor</a>
+                </div>
+            </div>
+            <div class="linksDireita">
+                <div class="container-md">
+                    <a class="navbar-brand" onclick="telaLogin()" href="#">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <form>
             Tela Gerente
         </form>
     </div>
     <div id="vendedor">
-        <form >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="linksEsquerda">
+                <div class="container-md">
+                    <a class="navbar-brand">VENDEDOR</a>
+                </div>
+                <div class="container-md">
+                    <a class="navbar-brand" href="#">Vendas</a>
+                </div>
+            </div>
+            <div class="linksDireita">
+                <div class="container-md">
+                    <a class="navbar-brand" onclick="telaLogin()" href="#">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <form>
             Tela Vendedor
         </form>
     </div>
-    
+
+    <!-- Usuário -->
+    <div id="usuarioForm">
+        <form>
+            <div id="alerta"></div>
+            <input type="text" id="novoNome" placeholder="Nome" class="form-control" onclick="ocultarAlerta()">
+            <input type="text" id="novoLogin" placeholder="Login" class="form-control">
+            <input type="text" id="novaSenha" placeholder="Senha" class="form-control">
+            <select class="form-control" id="novoTipo">
+                <option value='G'>Gerente</option>
+                <option value='V'>Vendedor</option>
+            </select>
+            <input type="button" id="btnCadastrar" value="Cadastrar" class="btn btn-primary" onclick="cadastrar()">
+            <input type="button" id="btnAlterar" value="Alterar" class="btn btn-warning" onclick="alterarUsuario()">
+            <input type="button" id="btnCancelar" value="Cancelar" class="btn btn-secondary"
+                onclick="cancelarUsuario()">
+
+
+        </form>
+        <table class="table" id="tabelaCompleta">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Login</th>
+                    <th>Senha</th>
+                    <th>Tipo</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody id="tabela"></tbody>
+        </table>
+    </div>
+    <!-- Marca -->
+    <div id="formMarca">
+        <form >
+            <div id="alertaMarca"></div>
+            <input type="text" id="nomeMarca" placeholder="Nome" class="form-control" onclick="ocultarAlertaMarca()">
+            <input type="button" id="btnCadastrarMarca" value="Cadastrar" class="btn btn-primary"
+                onclick="cadastrarMarca()">
+            <input type="button" id="btnAlterarMarca" value="Alterar" class="btn btn-warning" onclick="alterarMarca()">
+            <input type="button" id="btnCancelarMarca" value="Cancelar" class="btn btn-secondary"
+                onclick="cancelarMarca()">
+        </form>
+        <table class="table" id="tabelaCompletaMarca">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Marca</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaMarca"></tbody>
+        </table>
+    </div>
+
+    <div id="formProduto">
+        <form >
+            <div id="alertaProduto"></div>
+            <input type="text" id="nomeProduto" placeholder="Produto" class="form-control" onclick="ocultarAlertaProduto()">
+            <select class="form-control" id="marcasProdutos"></select>
+            <input type="button" id="btnCadastrarProduto" value="Cadastrar" class="btn btn-primary"
+                onclick="cadastrarProduto()">
+            <input type="button" id="btnAlterarProduto" value="Alterar" class="btn btn-warning" onclick="alterarProduto()">
+            <input type="button" id="btnCancelarProduto" value="Cancelar" class="btn btn-secondary"
+                onclick="cancelarProduto()">
+        </form>
+        <table class="table" id="tabelaCompletaProduto">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Produto</th>
+                    <th>Marca</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaProduto"></tbody>
+        </table>
+    </div>
+
 </body>
+
 </html>
