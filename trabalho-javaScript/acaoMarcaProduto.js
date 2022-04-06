@@ -1,20 +1,42 @@
 var marcas = []
+
 marcas.push({ "nome": "Acer" })
 marcas.push({ "nome": "Dell" })
 marcas.push({ "nome": "Asus" })
+
 var produtos = []
-produtos.push({ "nome": "Nitro 5", "marca": "0" })
-produtos.push({ "nome": "Insprion", "marca": "1" })
-produtos.push({ "nome": "Zen Book", "marca": "2" })
+produtos.push({ "nome": "Nitro 5", "marca": "0", "valor": "4999" })
+produtos.push({ "nome": "Insprion", "marca": "1", "valor": "3999" })
+produtos.push({ "nome": "Zen Book", "marca": "2", "valor": "4699" })
 
 var nomeMarca
 var nomeProduto
+var valorProduto
 var alerta
 var alertaP
 var indiceMarca
 var indiceProduto
 
+window.onload = function () {
+    if (localStorage.getItem("vetorMarca") != null) {
+        marcas = JSON.parse(localStorage.getItem("vetorMarca"))
+    }
+    if (localStorage.getItem("vetorProduto") != null) {
+        produtos = JSON.parse(localStorage.getItem("vetorProduto"))
+    }
+}
+
+function salvarMarcaLocalStorage() {
+    localStorage.setItem("vetorMarca", JSON.stringify(marcas))
+}
+
+function salvarProdutoLocalStorage() {
+    localStorage.setItem("vetorProduto", JSON.stringify(produtos))
+}
+
 function telaMarcas() {
+    document.getElementById("formEstatisticas").style.display = "none"
+    document.getElementById("formVendas").style.display = "none"
     document.getElementById("formProduto").style.display = "none"
     document.getElementById("usuarioForm").style.display = "none"
     document.getElementById("tabelaCompleta").style.display = "none"
@@ -56,6 +78,7 @@ function cadastrarMarca() {
         alerta.innerText = "Marca Cadastrada"
         alerta.classList.add("alert", "alert-success")
         marcas.push({ "nome": nomeMarca })
+        salvarMarcaLocalStorage()
         listarMarca()
         limparCampoMarca()
     }
@@ -103,22 +126,24 @@ function alterarMarca() {
         alerta.innerText = "Marca Alterada"
         alerta.classList.add("alert", "alert-success")
         marcas[indiceMarca] = ({ "nome": nomeMarca })
+        salvarMarcaLocalStorage()
         listarMarca()
         limparCampoMarca()
         cancelarMarca()
     }
 }
 function removerMarcas(indice) {
-    let exclui=false
+    let exclui = false
     for (var i = 0; i < produtos.length; i++) {
-        if(produtos[i].marca==indice){
-            exclui=true
+        if (produtos[i].marca == indice) {
+            exclui = true
         }
     }
-    if(!exclui){
+    if (!exclui) {
         marcas.splice(indice, 1)
+        salvarMarcaLocalStorage()
         listarMarca()
-    }else{
+    } else {
         alert("Essa Marca não pode ser excluída porque tem um produto vinculado a ela!!!")
     }
 }
@@ -126,6 +151,8 @@ function removerMarcas(indice) {
 // Produtos
 
 function telaProdutos() {
+    document.getElementById("formEstatisticas").style.display = "none"
+    document.getElementById("formVendas").style.display = "none"
     document.getElementById("formMarca").style.display = "none"
     document.getElementById("usuarioForm").style.display = "none"
     document.getElementById("tabelaCompleta").style.display = "none"
@@ -134,7 +161,7 @@ function telaProdutos() {
     document.getElementById("formProduto").style.display = "inline"
     document.getElementById("tabelaCompletaProduto").style.display = "inline-table"
     carregarMarcas()
-    // cancelarMarca()
+    limparCampoProduto()
     listarProdutos()
 
 }
@@ -160,33 +187,32 @@ function listarProdutos() {
         var colunaNumero = linha.insertCell(0)
         var colunaProduto = linha.insertCell(1)
         var colunaMarca = linha.insertCell(2)
-        var colunaAlterar = linha.insertCell(3)
+        var colunaValor = linha.insertCell(3)
+        var colunaAlterar = linha.insertCell(4)
 
         colunaNumero.innerHTML = i + 1
         colunaProduto.innerHTML = produtos[i].nome
         colunaMarca.innerHTML = marcas[produtos[i].marca].nome
-        colunaAlterar.innerHTML = `<button class="btn btn-warning" onClick="selecionarMarca(${i})">Editar</button><button class="btn btn-danger" onClick="removerMarcas(${i})">Remover</button>`
+        colunaValor.innerHTML = parseFloat(produtos[i].valor).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+        colunaAlterar.innerHTML = `<button class="btn btn-warning" onClick="selecionarProduto(${i})">Editar</button><button class="btn btn-danger" onClick="removerProduto(${i})">Remover</button>`
 
     }
 }
 
 function cadastrarProduto() {
     if (verificarPreenchimentoProduto()) {
-        alertaP.innerText = "Marca Cadastrada"
+        alertaP.innerText = "Produto Cadastrado"
         alertaP.classList.add("alert", "alert-success")
-        produtos.push({ "nome": nomeProduto, "marca": document.getElementById("marcasProdutos").value })
+        produtos.push({ "nome": nomeProduto, "marca": document.getElementById("marcasProdutos").value, "valor": valorProduto })
+        salvarProdutoLocalStorage()
         listarProdutos()
         limparCampoProduto()
-    } else {
-        alert("Não cadastrado")
     }
-
-    console.table(produtos)
-
 }
 
 function verificarPreenchimentoProduto() {
     nomeProduto = document.getElementById("nomeProduto").value
+    valorProduto = document.getElementById("valorProduto").value
     alertaP = document.getElementById("alertaProduto")
     alertaP.classList.remove("alert", "alert-danger", "alert-sucess")
 
@@ -194,6 +220,10 @@ function verificarPreenchimentoProduto() {
         alertaP.innerText = "Favor preencher o campo Produto"
         alertaP.classList.add("alert", "alert-danger")
         document.getElementById("nomeProduto").focus()
+    } else if (valorProduto == "") {
+        alertaP.innerText = "Favor preencher o campo Valor"
+        alertaP.classList.add("alert", "alert-danger")
+        document.getElementById("valorProduto").focus()
     } else {
         return true
     }
@@ -208,6 +238,7 @@ function ocultarAlertaProduto() {
 
 function limparCampoProduto() {
     document.getElementById("nomeProduto").value = ""
+    document.getElementById("valorProduto").value = ""
     document.getElementById("marcasProdutos").value = 0
 }
 
@@ -216,9 +247,35 @@ function alterarProduto() {
     if (verificarPreenchimentoProduto()) {
         alerta.innerText = "Produto Alterada"
         alerta.classList.add("alert", "alert-success")
-        produtos[indiceProduto] = ({ "nome": nomeProduto, "marca": document.getElementById("marcasProdutos").value })
-        listarProduto()
+        produtos[indiceProduto] = ({ "nome": nomeProduto, "marca": document.getElementById("marcasProdutos").value, "valor": valorProduto })
+        salvarProdutoLocalStorage()
+        listarProdutos()
         limparCampoProduto()
         cancelarProduto()
     }
+}
+
+function selecionarProduto(indice) {
+    document.getElementById("tabelaCompletaProduto").style.display = "none"
+    document.getElementById("btnCadastrarProduto").style.display = "none"
+    document.getElementById("btnAlterarProduto").style.display = "inline-block"
+    document.getElementById("btnCancelarProduto").style.display = "inline-block"
+    document.getElementById("nomeProduto").value = produtos[indice].nome
+    document.getElementById("valorProduto").value = produtos[indice].valor
+    document.getElementById("marcasProdutos").value = produtos[indice].marca
+    indiceProduto = indice
+}
+
+function cancelarProduto() {
+    document.getElementById("tabelaCompletaProduto").style.display = "inline-table"
+    document.getElementById("btnCadastrarProduto").style.display = "inline-block"
+    document.getElementById("btnAlterarProduto").style.display = "none"
+    document.getElementById("btnCancelarProduto").style.display = "none"
+    limparCampoProduto()
+}
+
+function removerProduto(indice) {
+    produtos.splice(indice, 1)
+    salvarProdutoLocalStorage()
+    listarProdutos()
 }

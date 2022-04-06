@@ -1,3 +1,23 @@
+h1{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#listaVendas{
+    background-color: rgb(190, 183, 183);
+    margin-left: 20px;
+    width: 200px;
+}
+
+#totalVendedor{
+    text-align: left;
+}
+.teste32{
+    margin-left: 20px;
+    margin-top: 10px;
+    text-align: left;
+}
+
 form{
     width: 200px;
     margin-top: 10px;
@@ -21,7 +41,9 @@ form input{
 #vendedor, 
 #usuarioForm,
 #formMarca,
-#formProduto{
+#formProduto,
+#formVendas,
+#formEstatisticas{
     display: none;
 }
 #marcasProdutos{
@@ -32,7 +54,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: linear-gradient(to right, #b9b7b7, #06f14d)
+    background: white;
 }
 
 .card {
