@@ -61,12 +61,18 @@ function venderProduto(id_produto) {
 }
 
 function mostrarListaDeVendas() {
-    mostrarListaVendas = document.getElementById("mostrarListaVendas")
+    mostrarListaVendas = document.getElementById("listaProdutosVendido")
     var lista = ""
     for (var i = 0; i < vendas.length; i++) {
         if (vendas[i].id_vendedor == usuarioLogado) {
-            lista += produtos[vendas[i].id_produto].nome + "<BR>"
+            lista += "<tr><th>"+produtos[vendas[i].id_produto].nome +"</th><th>"+`<button class="btn btn-danger" onClick="removerProdutoVenda(${i})">Remover</button>`+"</th></tr>"
         }
     }
     mostrarListaVendas.innerHTML = lista
+}
+
+function removerProdutoVenda(indice){
+    vendas.splice(indice, 1)
+    mostrarListaDeVendas()
+
 }

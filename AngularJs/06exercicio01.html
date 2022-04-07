@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tamanho{
+            border: 1;
+            margin-top: 10px;
+            border-style: solid ;
+            width: 300px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <div id="tamanho" ng-app="meuModulo" ng-controller="meuController">
+        <form>
+            <input type="number" placeholder="Valor"ng-model="campo">
+            <fieldset>
+                <legend>Escolha uma opção</legend>
+                <label><input type="radio"  ng-model="valor1" value="Dolar" ng-click="cadastrar('dolar')">Dolar</label>
+                <label><input type="radio"  ng-model="valor1" value="Euro" ng-click="cadastrar('euro')">Euro</label>
+                <label><input type="radio"  ng-model="valor1" value="Libra" ng-click="cadastrar('libra')">Libra</label>
+
+            </fieldset>
+
+        </form>
+        <h4>Valor em R$ {{valor | currency}}</h4>
+    </div>
+
+    <script>
+        var app = angular.module("meuModulo", [])
+        app.controller("meuController", function($scope){            
+            $scope.cadastrar = function(tipo){
+                if(tipo=="dolar"){
+                    $scope.valor = $scope.campo/4.75
+                }if(tipo=="euro"){
+                    $scope.valor = $scope.campo/5.16
+                }if(tipo=="libra"){
+                    $scope.valor = $scope.campo/6.20
+                }                
+            }            
+        })
+    </script>
+</body>
+
+</html>

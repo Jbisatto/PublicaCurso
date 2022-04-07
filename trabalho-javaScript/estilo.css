@@ -1,12 +1,17 @@
+
 h1{
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 #listaVendas{
-    background-color: rgb(190, 183, 183);
+    background-color:rgb(248, 248, 250);
     margin-left: 20px;
-    width: 200px;
+    width: 300px;
+    border-style: outset;
+    
+    border-radius: 10px;
+    
 }
 
 #totalVendedor{
@@ -54,25 +59,46 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: white;
+    background-color: linear-gradient(rgb(248, 248, 250), rgb(173, 171, 171));
 }
 
 .card {
     margin-bottom: 20px;
     border: none
 }
-
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #191919;
-    ;
+.loginInicial{
+    
     text-align: center;
-    transition: 0.25s;
-    margin-top: 100px
+    margin-left: auto;
+    margin-right: auto;     
+    padding: 2%;
+    margin-top: 5%;    
+    border-radius: 24px;
+    
+
+}
+.loginExterno{
+    background: white;
+    border-style: outset;
+    width: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; 
+    padding: 2%;
+    margin-top: 5%;    
+    border-radius: 24px;
+    
+}
+.box h1{
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.box form{
+    width: auto;
+    margin-top: none;
+    margin-left: none;
+    text-align: center;
 }
 
 .box input[type="text"],
@@ -82,44 +108,43 @@ body {
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #3498db;
+    border: 2px solid #043150;
     padding: 10px 10px;
     width: 250px;
     outline: none;
-    color: white;
     border-radius: 24px;
-    transition: 0.25s
-}
+    transition: 0.25s;
+    margin-top: none;
 
-.box h1 {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500
+    
 }
-
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 300px;
-    border-color: #2ecc71
-}
-
 .box input[type="button"] {
     border: 0;
     background: none;
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #2ecc71;
+    border: 2px solid #043150;
     padding: 14px 40px;
     outline: none;
-    color: white;
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer
 }
 
 .box input[type="button"]:hover {
-    background: #2ecc71
+    background: #0c0c0c;
+    color: white;
+
+}
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 300px;
+}
+
+.box h1 {
+    text-transform: uppercase;
+    font-weight: 100
 }
 
 .forgot {
@@ -145,6 +170,5 @@ body {
     display: flex;
     float: right;
 }
-
 
 

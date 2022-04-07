@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        #tamanho {
+            border: 1;
+            margin-top: 10px;
+            border-style: solid;
+            width: 200px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div ng-app="modulo" ng-controller="controle" >
+        <div id="tamanho">
+            <form>
+                <input type="text" ng-model="nome" placeholder="Nome">
+                <input type="text" ng-model="email" placeholder="E-mail">
+                <input type="text" ng-model="telefone" placeholder="Telefone">
+                <input type="text" ng-model="estado" placeholder="Estado">
+                <input type="text" ng-model="cidade" placeholder="Cidade">
+                <button ng-click="cadastrar()">Cadastrar</button>
+            </form>
+        </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Estado</th>
+                    <th>Cidade</th>
+                </tr>
+            </thead>
+            <tbody id="tabela"></tbody>
+            <tr ng-repeat="v in vetor">
+                <td>{{}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var app = angular.module("modulo", [])
+        app.controller("controle", function ($scope) {
+            //Array
+            $scope.nomes = ["Alice", "Ricardo", "Bianca", "Julio"]
+            //Cadastrar nome
+            $scope.cadastrar = function () {
+                $scope.nomes.push($scope.campo)
+                $scope.campo = ""
+            }
+        })
+
+    </script>
+</body>
+
+</html>

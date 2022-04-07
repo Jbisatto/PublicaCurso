@@ -22,20 +22,16 @@
 
 <body>
 
-    <div class="container" id="login">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <form class="box">
-                        <h1>Login</h1>
-                        <p class="text-muted"> Insira o login e Senha</p>
-                        <input type="text" id="usuario" value="" placeholder="Login">
-                        <input type="password" id="senha" value="" placeholder="Senha">
-                        <input type="button" name="" value="Login" onclick="entrar()">
-                        <div class="col-md-12">
-                        </div>
-                    </form>
-                </div>
+    <div class="loginExterno" id="login">
+        <div class="loginInicial">
+            <div class="box">
+                <form>
+                    <h1>Login</h1>
+                    <input type="text" class="form-control" id="usuario" aria-describedby="emailHelp"
+                        placeholder="Login">
+                    <input type="password" class="form-control" id="senha" placeholder="Senha">
+                    <input type="button" name="" value="Entrar" onclick="entrar()">
+                </form>
             </div>
         </div>
     </div>
@@ -60,8 +56,8 @@
                     </div>
                 </div>
             </div>
-    </div>
-    </nav>
+
+        </nav>
     </div>
     <div id="gerente">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -87,13 +83,14 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand">VENDEDOR</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-    
+
                         <a class="navbar-brand">Vendas</a>
                         <a class="navbar-brand" onclick="telaLogin()" href="#">Logout</a>
                     </div>
@@ -192,7 +189,18 @@
         <h1>Vendas</h1>
         <h2 id="nomeVendedor"></h2>
         <div id="listaVendas">
-            <h4>Lista de vendas</h4>
+
+            <table class="table" id="mostrarListaVendas">
+                <thead>
+                    <tr>
+                        <th>
+                            <h4>Lista de vendas</h4>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="listaProdutosVendido"></tbody>
+            </table>
+
             <div id="mostrarListaVendas"></div>
         </div>
         <table class="table" id="tabelaCompletaVendas">

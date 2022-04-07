@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tamanho {
+            border: 1;
+            margin-top: 10px;
+            border-style: solid;
+            width: 300px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <div id="tamanho" ng-app="meuModulo" ng-controller="meuController">
+        <form>
+            <input type="text" placeholder="Peso" ng-model="peso">
+            <input type="text" placeholder="Altura" ng-model="altura">
+            <button ng-click="cadastrar()">Calcular</button>
+        </form>
+        <h4>IMC: {{valor}}</h4>
+    </div>
+
+    <script>
+        var app = angular.module("meuModulo", [])
+        app.controller("meuController", function ($scope) {
+            $scope.cadastrar = function () {
+                var imc = $scope.peso / ($scope.altura * $scope.altura)
+                if (imc < 18.5) {
+                    $scope.valor = "Abaixo do Peso"
+                } if (imc >= 18.5 && imc < 25) {
+                    $scope.valor = "Peso normal"
+                } if (imc > 24.9 && imc < 30) {
+                    $scope.valor = "Sobrepeso"
+                } if (imc > 29.9 && imc < 35) {
+                    $scope.valor = "Obesidade Grau 1"
+                } if (imc > 34.9 && imc < 40) {
+                    $scope.valor = "Obesidade Grau 2"
+                } if (imc > 39.9) {
+                    $scope.valor = "Obesidade Grau 3 ou Mórbida"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
