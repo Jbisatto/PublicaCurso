@@ -1,0 +1,16 @@
+#divFormularo{
+    margin: auto;
+    width: 90%;
+
+}
+form{
+    width: 30%;
+    margin: 20px auto;
+}
+
+input{
+    margin-bottom :10px;
+}
+input[type="button"]{
+    margin-right: 5px;
+}
