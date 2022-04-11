@@ -6,8 +6,8 @@
     
     <input type="button" *ngIf="btnVisivel" value="Cadastrar" (click)="cadastrar()" class="btn btn-primary">
     <input type="button" *ngIf="!btnVisivel" value="Alterar"  (click)="alterar()"class="btn btn-warning">
-    <input type="button" *ngIf="!btnVisivel" value="Remover" class="btn btn-danger">
-    <input type="button" *ngIf="!btnVisivel" value="Cancelar"  class="btn btn-secondary">
+    <input type="button" *ngIf="!btnVisivel" value="Remover" (click)="remover()" class="btn btn-danger">
+    <input type="button" *ngIf="!btnVisivel" value="Cancelar" (click)="cancelar()" class="btn btn-secondary">
 
 </form>
 

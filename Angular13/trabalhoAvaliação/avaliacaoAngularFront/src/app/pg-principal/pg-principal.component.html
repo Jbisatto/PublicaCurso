@@ -1,0 +1,26 @@
+<div id="divPrincipal">
+    <h1>Cadastro de Pessoas</h1>
+
+    <form [formGroup]="formulario">
+        <input type="text" name="nome" placeholder="Nome" class="form-control">
+        <input type="email" name="email" placeholder="E-Mail" class="form-control">
+        <input type="text" mask="(000) 000-0000" placeholder="Ex. (000) 000-0000" value="">
+        <select class="form-control" formControlName="cbxEstado" name="cbxEstado" (change)="selecaoEstado()">
+            <option *ngFor="let estado of estados,let i = index" [value]="i">
+                {{estado.nome}}
+            </option>
+        </select>
+        <select class="form-control" formControlName="cbxCidade" name="cbxEstado">
+            <option *ngFor="let cidade of cidades,let i = index" [value]="i">
+                {{cidade.nome}}
+            </option>
+        </select>
+
+        <input type="button" *ngIf="btnVisivel" value="Cadastrar" class="btn btn-primary">
+        <input type="button" *ngIf="!btnVisivel" value="Alterar" class="btn btn-warning">
+        <input type="button" *ngIf="!btnVisivel" value="Remover" class="btn btn-danger">
+        <input type="button" *ngIf="!btnVisivel" value="Cancelar" class="btn btn-secondary">
+
+    </form>
+
+</div>

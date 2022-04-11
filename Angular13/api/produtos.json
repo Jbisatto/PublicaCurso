@@ -7,112 +7,16 @@
       "id": 1
     },
     {
-      "produto": "Smartphone Galaxy S10",
-      "marca": "Samsung",
-      "valor": 5000,
+      "produto": "2121",
+      "marca": "212121",
+      "valor": "9999",
       "id": 2
     },
     {
-      "produto": "Iphone 13",
-      "marca": "Apple",
-      "valor": 9000,
+      "produto": "d",
+      "marca": "1",
+      "valor": "2",
       "id": 3
-    },
-    {
-      "produto": "teste",
-      "marca": "212121",
-      "valor": "03123",
-      "id": 4
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 5
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 6
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 7
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 8
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 9
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 10
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 11
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 12
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 13
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 14
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 15
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 16
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 17
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 18
-    },
-    {
-      "produto": "",
-      "marca": "",
-      "valor": 0,
-      "id": 19
     }
   ]
 }

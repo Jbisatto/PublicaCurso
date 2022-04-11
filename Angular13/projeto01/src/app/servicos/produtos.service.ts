@@ -22,7 +22,10 @@ export class ProdutosService {
     return this.http.post<Produto>('http://localhost:3000/produtos',p);
   }
   alterar(p:Produto):Observable<Produto>{
-    return this.http.put<Produto>('http://localhost:3000/produtos',p);
+    return this.http.put<Produto>('http://localhost:3000/produtos/'+p.id,p);
   }
 
+  removerProduto(indice:number):Observable<Produto>{
+    return this.http.delete<Produto>('http://localhost:3000/produtos/'+indice);
+  }
 }

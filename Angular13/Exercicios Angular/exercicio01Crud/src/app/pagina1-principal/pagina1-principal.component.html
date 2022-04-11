@@ -1,0 +1,53 @@
+<div id="divCargo">
+    <form>
+        <input type="text" name="nomecargo" [(ngModel)]="objCargo.nomeCargo" placeholder="Cargo" class="form-control">
+        <input type="number" name="salario" [(ngModel)]="objCargo.salario" placeholder="Salário referente ao Cargo"
+            class="form-control">
+        <input type="button" value="Cadastrar" (click)="cadastrarCargo()" class="btn btn-primary">
+    </form>
+
+    <table class="table table-striped" border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Cargo</th>
+                <th>Salário</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of cargos; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{p.nomeCargo}}</td>
+                <td>{{p.salario}}</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+<hr>
+
+<div id="divFuncionario">
+    <h1>Funcionario</h1>
+    <form [formGroup]="formulario">
+        <input type="text" name="nomeFuncioanrio"  placeholder="Nome" class="form-control">
+        <select class="form-control" formControlName="selectCargo" name="selectCargo">
+            <option value="A"label="--Cargo --" ></option>            
+            <option *ngFor="let cargo of cargos,let i = index" [value]="i">
+                {{cargo.nomeCargo}}
+            </option>
+        </select>
+        <select class="form-control" formControlName="selectGenero" name="selectGenero">
+            <option label="--Genêro --" value="N" >Genêro</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+
+        </select>
+        <input type="button" *ngIf="btnVisivel" value="Cadastrar" (click)="cadastrarPessoa()" class="btn btn-primary">
+    </form>
+
+    <h1>{{formulario.value.selectCargo | json}}</h1>
+    <h1>{{formulario.value.selectGenero | json}}</h1>
+</div>

@@ -1,0 +1,25 @@
+#divFormularo{
+    margin: auto;
+    width: 90%;
+
+}
+form{
+
+    margin: 20px auto;
+}
+
+input{
+    margin-bottom :10px;
+}
+input[type="button"]{
+    margin-right: 5px;
+}
+#divCargo{
+    text-align: center;
+    width: 250px;
+}
+#divFuncionario{
+    margin: auto;
+    text-align: center;
+    width: 500px;
+}

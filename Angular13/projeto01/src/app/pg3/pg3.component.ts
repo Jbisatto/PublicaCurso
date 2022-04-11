@@ -13,7 +13,8 @@ export class Pg3Component implements OnInit {
 
   objProduto: Produto = new Produto();
 
-  btnVisivel:boolean=true;
+
+  btnVisivel: boolean = true;
 
   constructor(private servico: ProdutosService) { }
 
@@ -29,21 +30,42 @@ export class Pg3Component implements OnInit {
   cadastrar = () => {
     this.servico.cadastrar(this.objProduto)
       .subscribe(retorno => this.produtos.push(retorno))
+    this.limparCampo();
   }
 
-  selecionarProduto(indice:number){
-    this.btnVisivel=false;
+  selecionarProduto(indice: number) {
+    this.btnVisivel = false;
     this.obterProdutosId(indice);
   }
-  obterProdutosId = (indice:number) => {
+  obterProdutosId = (indice: number) => {
     this.servico.listarProdutoId(indice)
       .subscribe(retorno => this.objProduto = retorno);
   }
 
-  alterar = () =>{
+  alterar = () => {
     this.servico.alterar(this.objProduto)
-    .subscribe(retorno => this.produtos[this.produtos.findIndex((objProduto)=>{
-      return objProduto.id==3
-    })])
+      .subscribe(retorno => this.produtos[this.produtos.findIndex((p => p.id == this.objProduto.id))] = retorno);
+    this.limparCampo();
+  }
+
+  remover = () => {
+    this.servico.removerProduto(this.objProduto.id)
+      .subscribe(retorno => {
+        let indiceVetor = this.produtos.findIndex(objVetor => { return objVetor.id == this.objProduto.id })
+        this.produtos.splice(indiceVetor, 1)
+      });
+    this.limparCampo();
+  }
+
+  cancelar = () => {
+    this.limparCampo();
+    this.btnVisivel = true;
+  }
+
+  limparCampo() {
+    this.objProduto.id = 0;
+    this.objProduto.produto = "";
+    this.objProduto.marca = "";
+    this.objProduto.valor = 0;
   }
 }
