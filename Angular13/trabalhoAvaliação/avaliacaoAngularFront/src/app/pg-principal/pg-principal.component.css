@@ -1,4 +1,18 @@
 #divPrincipal{
+    margin-bottom: 10px;
+    text-align: center;
     margin: auto;
-    width: 500px;
+    width: 300px;
+}
+#divTable{
+    margin: auto;
+    width: 900px;
+}
+#divTitulo{
+    text-align: center;
+    margin: auto;
+}
+#divPrincipal input, select{
+    margin-top: 5px;
+    margin-left: 5px;
 }

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PgPrincipalComponent } from './pg-principal/pg-principal.component';
 import {HttpClientModule} from '@angular/common/http';
-
+import { TextMaskModule } from 'angular2-text-mask';
 import { NgxMaskModule} from 'ngx-mask'
 
 @NgModule({
@@ -19,7 +19,8 @@ import { NgxMaskModule} from 'ngx-mask'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,   
+    HttpClientModule,
+    TextMaskModule,   
     NgxMaskModule.forRoot()
   ],
   providers: [],

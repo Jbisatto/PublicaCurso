@@ -1,0 +1,20 @@
+{
+  "cadastroPessoas": [
+    {
+      "id": 0,
+      "nome": "Jefferson",
+      "telefone": "04799158513",
+      "email": "jefferson.bisatto@gmail.com",
+      "estado": "Santa Catarina",
+      "cidade": "Blumenau"
+    },
+    {
+      "id": 1,
+      "nome": "joao",
+      "telefone": "04799158513",
+      "email": "joao@gmail.com",
+      "estado": "Espírito Santo",
+      "cidade": "Águia Branca"
+    }
+  ]
+}
